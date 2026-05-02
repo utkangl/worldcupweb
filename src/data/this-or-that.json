@@ -1,0 +1,32 @@
+[
+  {
+    "id": "t1",
+    "kind": "player",
+    "left": { "label": "Lionel Messi", "meta": "Argentina" },
+    "right": { "label": "Kylian Mbappé", "meta": "France" }
+  },
+  {
+    "id": "t2",
+    "kind": "team",
+    "left": { "label": "Brazil", "meta": "5 titles" },
+    "right": { "label": "Germany", "meta": "4 titles" }
+  },
+  {
+    "id": "t3",
+    "kind": "goal",
+    "left": { "label": "Maradona vs England '86", "meta": "Hand + solo" },
+    "right": { "label": "Zidane volley 2002", "meta": "Final" }
+  },
+  {
+    "id": "t4",
+    "kind": "player",
+    "left": { "label": "Vinícius Júnior", "meta": "Brazil" },
+    "right": { "label": "Jude Bellingham", "meta": "England" }
+  },
+  {
+    "id": "t5",
+    "kind": "team",
+    "left": { "label": "Spain", "meta": "Tiki-taka" },
+    "right": { "label": "France", "meta": "Counter" }
+  }
+]

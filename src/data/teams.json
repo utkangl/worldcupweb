@@ -1,0 +1,345 @@
+[
+  {
+    "id": "mex",
+    "name": "Mexico",
+    "shortName": "MEX",
+    "group": "A",
+    "fifaCode": "MEX"
+  },
+  {
+    "id": "rsa",
+    "name": "South Africa",
+    "shortName": "RSA",
+    "group": "A",
+    "fifaCode": "RSA"
+  },
+  {
+    "id": "kor",
+    "name": "South Korea",
+    "shortName": "KOR",
+    "group": "A",
+    "fifaCode": "KOR"
+  },
+  {
+    "id": "cze",
+    "name": "Czechia",
+    "shortName": "CZE",
+    "group": "A",
+    "fifaCode": "CZE"
+  },
+  {
+    "id": "can",
+    "name": "Canada",
+    "shortName": "CAN",
+    "group": "B",
+    "fifaCode": "CAN"
+  },
+  {
+    "id": "bih",
+    "name": "Bosnia and Herzegovina",
+    "shortName": "BIH",
+    "group": "B",
+    "fifaCode": "BIH"
+  },
+  {
+    "id": "qat",
+    "name": "Qatar",
+    "shortName": "QAT",
+    "group": "B",
+    "fifaCode": "QAT"
+  },
+  {
+    "id": "sui",
+    "name": "Switzerland",
+    "shortName": "SUI",
+    "group": "B",
+    "fifaCode": "SUI"
+  },
+  {
+    "id": "usa",
+    "name": "USA",
+    "shortName": "USA",
+    "group": "D",
+    "fifaCode": "USA"
+  },
+  {
+    "id": "par",
+    "name": "Paraguay",
+    "shortName": "PAR",
+    "group": "D",
+    "fifaCode": "PAR"
+  },
+  {
+    "id": "bra",
+    "name": "Brazil",
+    "shortName": "BRA",
+    "group": "C",
+    "fifaCode": "BRA"
+  },
+  {
+    "id": "mar",
+    "name": "Morocco",
+    "shortName": "MAR",
+    "group": "C",
+    "fifaCode": "MAR"
+  },
+  {
+    "id": "hai",
+    "name": "Haiti",
+    "shortName": "HAI",
+    "group": "C",
+    "fifaCode": "HAI"
+  },
+  {
+    "id": "sco",
+    "name": "Scotland",
+    "shortName": "SCO",
+    "group": "C",
+    "fifaCode": "SCO"
+  },
+  {
+    "id": "aus",
+    "name": "Australia",
+    "shortName": "AUS",
+    "group": "D",
+    "fifaCode": "AUS"
+  },
+  {
+    "id": "tur",
+    "name": "Türkiye",
+    "shortName": "TUR",
+    "group": "D",
+    "fifaCode": "TUR"
+  },
+  {
+    "id": "ger",
+    "name": "Germany",
+    "shortName": "GER",
+    "group": "E",
+    "fifaCode": "GER"
+  },
+  {
+    "id": "cuw",
+    "name": "Curaçao",
+    "shortName": "CUW",
+    "group": "E",
+    "fifaCode": "CUW"
+  },
+  {
+    "id": "ned",
+    "name": "Netherlands",
+    "shortName": "NED",
+    "group": "F",
+    "fifaCode": "NED"
+  },
+  {
+    "id": "jpn",
+    "name": "Japan",
+    "shortName": "JPN",
+    "group": "F",
+    "fifaCode": "JPN"
+  },
+  {
+    "id": "civ",
+    "name": "Ivory Coast",
+    "shortName": "CIV",
+    "group": "E",
+    "fifaCode": "CIV"
+  },
+  {
+    "id": "ecu",
+    "name": "Ecuador",
+    "shortName": "ECU",
+    "group": "E",
+    "fifaCode": "ECU"
+  },
+  {
+    "id": "swe",
+    "name": "Sweden",
+    "shortName": "SWE",
+    "group": "F",
+    "fifaCode": "SWE"
+  },
+  {
+    "id": "tun",
+    "name": "Tunisia",
+    "shortName": "TUN",
+    "group": "F",
+    "fifaCode": "TUN"
+  },
+  {
+    "id": "esp",
+    "name": "Spain",
+    "shortName": "ESP",
+    "group": "H",
+    "fifaCode": "ESP"
+  },
+  {
+    "id": "cpv",
+    "name": "Cape Verde",
+    "shortName": "CPV",
+    "group": "H",
+    "fifaCode": "CPV"
+  },
+  {
+    "id": "bel",
+    "name": "Belgium",
+    "shortName": "BEL",
+    "group": "G",
+    "fifaCode": "BEL"
+  },
+  {
+    "id": "egy",
+    "name": "Egypt",
+    "shortName": "EGY",
+    "group": "G",
+    "fifaCode": "EGY"
+  },
+  {
+    "id": "ksa",
+    "name": "Saudi Arabia",
+    "shortName": "KSA",
+    "group": "H",
+    "fifaCode": "KSA"
+  },
+  {
+    "id": "uru",
+    "name": "Uruguay",
+    "shortName": "URU",
+    "group": "H",
+    "fifaCode": "URU"
+  },
+  {
+    "id": "irn",
+    "name": "Iran",
+    "shortName": "IRN",
+    "group": "G",
+    "fifaCode": "IRN"
+  },
+  {
+    "id": "nzl",
+    "name": "New Zealand",
+    "shortName": "NZL",
+    "group": "G",
+    "fifaCode": "NZL"
+  },
+  {
+    "id": "fra",
+    "name": "France",
+    "shortName": "FRA",
+    "group": "I",
+    "fifaCode": "FRA"
+  },
+  {
+    "id": "sen",
+    "name": "Senegal",
+    "shortName": "SEN",
+    "group": "I",
+    "fifaCode": "SEN"
+  },
+  {
+    "id": "irq",
+    "name": "Iraq",
+    "shortName": "IRQ",
+    "group": "I",
+    "fifaCode": "IRQ"
+  },
+  {
+    "id": "nor",
+    "name": "Norway",
+    "shortName": "NOR",
+    "group": "I",
+    "fifaCode": "NOR"
+  },
+  {
+    "id": "arg",
+    "name": "Argentina",
+    "shortName": "ARG",
+    "group": "J",
+    "fifaCode": "ARG"
+  },
+  {
+    "id": "alg",
+    "name": "Algeria",
+    "shortName": "ALG",
+    "group": "J",
+    "fifaCode": "ALG"
+  },
+  {
+    "id": "aut",
+    "name": "Austria",
+    "shortName": "AUT",
+    "group": "J",
+    "fifaCode": "AUT"
+  },
+  {
+    "id": "jor",
+    "name": "Jordan",
+    "shortName": "JOR",
+    "group": "J",
+    "fifaCode": "JOR"
+  },
+  {
+    "id": "por",
+    "name": "Portugal",
+    "shortName": "POR",
+    "group": "K",
+    "fifaCode": "POR"
+  },
+  {
+    "id": "cod",
+    "name": "DR Congo",
+    "shortName": "COD",
+    "group": "K",
+    "fifaCode": "COD"
+  },
+  {
+    "id": "eng",
+    "name": "England",
+    "shortName": "ENG",
+    "group": "L",
+    "fifaCode": "ENG"
+  },
+  {
+    "id": "cro",
+    "name": "Croatia",
+    "shortName": "CRO",
+    "group": "L",
+    "fifaCode": "CRO"
+  },
+  {
+    "id": "gha",
+    "name": "Ghana",
+    "shortName": "GHA",
+    "group": "L",
+    "fifaCode": "GHA"
+  },
+  {
+    "id": "pan",
+    "name": "Panama",
+    "shortName": "PAN",
+    "group": "L",
+    "fifaCode": "PAN"
+  },
+  {
+    "id": "uzb",
+    "name": "Uzbekistan",
+    "shortName": "UZB",
+    "group": "K",
+    "fifaCode": "UZB"
+  },
+  {
+    "id": "col",
+    "name": "Colombia",
+    "shortName": "COL",
+    "group": "K",
+    "fifaCode": "COL"
+  },
+  {
+    "id": "tbd",
+    "name": "TBD",
+    "shortName": "TBD",
+    "group": "X",
+    "fifaCode": "TBD"
+  }
+]

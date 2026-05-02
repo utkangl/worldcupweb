@@ -1,0 +1,1010 @@
+[
+  {
+    "id": "gs-001",
+    "stage": "group",
+    "round": "Group A",
+    "group": "A",
+    "homeTeamId": "mex",
+    "awayTeamId": "rsa",
+    "kickoff": "2026-06-11T22:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-002",
+    "stage": "group",
+    "round": "Group A",
+    "group": "A",
+    "homeTeamId": "kor",
+    "awayTeamId": "cze",
+    "kickoff": "2026-06-12T05:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-003",
+    "stage": "group",
+    "round": "Group B",
+    "group": "B",
+    "homeTeamId": "can",
+    "awayTeamId": "bih",
+    "kickoff": "2026-06-12T22:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-004",
+    "stage": "group",
+    "round": "Group D",
+    "group": "D",
+    "homeTeamId": "usa",
+    "awayTeamId": "par",
+    "kickoff": "2026-06-13T04:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-005",
+    "stage": "group",
+    "round": "Group B",
+    "group": "B",
+    "homeTeamId": "qat",
+    "awayTeamId": "sui",
+    "kickoff": "2026-06-13T22:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-006",
+    "stage": "group",
+    "round": "Group C",
+    "group": "C",
+    "homeTeamId": "bra",
+    "awayTeamId": "mar",
+    "kickoff": "2026-06-14T01:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-007",
+    "stage": "group",
+    "round": "Group C",
+    "group": "C",
+    "homeTeamId": "hai",
+    "awayTeamId": "sco",
+    "kickoff": "2026-06-14T04:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-008",
+    "stage": "group",
+    "round": "Group D",
+    "group": "D",
+    "homeTeamId": "aus",
+    "awayTeamId": "tur",
+    "kickoff": "2026-06-14T07:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-009",
+    "stage": "group",
+    "round": "Group E",
+    "group": "E",
+    "homeTeamId": "ger",
+    "awayTeamId": "cuw",
+    "kickoff": "2026-06-14T20:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-010",
+    "stage": "group",
+    "round": "Group F",
+    "group": "F",
+    "homeTeamId": "ned",
+    "awayTeamId": "jpn",
+    "kickoff": "2026-06-14T23:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-011",
+    "stage": "group",
+    "round": "Group E",
+    "group": "E",
+    "homeTeamId": "civ",
+    "awayTeamId": "ecu",
+    "kickoff": "2026-06-15T02:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-012",
+    "stage": "group",
+    "round": "Group F",
+    "group": "F",
+    "homeTeamId": "swe",
+    "awayTeamId": "tun",
+    "kickoff": "2026-06-15T05:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-013",
+    "stage": "group",
+    "round": "Group H",
+    "group": "H",
+    "homeTeamId": "esp",
+    "awayTeamId": "cpv",
+    "kickoff": "2026-06-15T19:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-014",
+    "stage": "group",
+    "round": "Group G",
+    "group": "G",
+    "homeTeamId": "bel",
+    "awayTeamId": "egy",
+    "kickoff": "2026-06-15T22:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-015",
+    "stage": "group",
+    "round": "Group H",
+    "group": "H",
+    "homeTeamId": "ksa",
+    "awayTeamId": "uru",
+    "kickoff": "2026-06-16T01:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-016",
+    "stage": "group",
+    "round": "Group G",
+    "group": "G",
+    "homeTeamId": "irn",
+    "awayTeamId": "nzl",
+    "kickoff": "2026-06-16T04:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-017",
+    "stage": "group",
+    "round": "Group I",
+    "group": "I",
+    "homeTeamId": "fra",
+    "awayTeamId": "sen",
+    "kickoff": "2026-06-16T22:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-018",
+    "stage": "group",
+    "round": "Group I",
+    "group": "I",
+    "homeTeamId": "irq",
+    "awayTeamId": "nor",
+    "kickoff": "2026-06-17T01:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-019",
+    "stage": "group",
+    "round": "Group J",
+    "group": "J",
+    "homeTeamId": "arg",
+    "awayTeamId": "alg",
+    "kickoff": "2026-06-17T04:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-020",
+    "stage": "group",
+    "round": "Group J",
+    "group": "J",
+    "homeTeamId": "aut",
+    "awayTeamId": "jor",
+    "kickoff": "2026-06-17T07:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-021",
+    "stage": "group",
+    "round": "Group K",
+    "group": "K",
+    "homeTeamId": "por",
+    "awayTeamId": "cod",
+    "kickoff": "2026-06-17T20:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-022",
+    "stage": "group",
+    "round": "Group L",
+    "group": "L",
+    "homeTeamId": "eng",
+    "awayTeamId": "cro",
+    "kickoff": "2026-06-17T23:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-023",
+    "stage": "group",
+    "round": "Group L",
+    "group": "L",
+    "homeTeamId": "gha",
+    "awayTeamId": "pan",
+    "kickoff": "2026-06-18T02:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-024",
+    "stage": "group",
+    "round": "Group K",
+    "group": "K",
+    "homeTeamId": "uzb",
+    "awayTeamId": "col",
+    "kickoff": "2026-06-18T05:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-025",
+    "stage": "group",
+    "round": "Group A",
+    "group": "A",
+    "homeTeamId": "cze",
+    "awayTeamId": "rsa",
+    "kickoff": "2026-06-18T19:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-026",
+    "stage": "group",
+    "round": "Group B",
+    "group": "B",
+    "homeTeamId": "sui",
+    "awayTeamId": "bih",
+    "kickoff": "2026-06-18T22:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-027",
+    "stage": "group",
+    "round": "Group B",
+    "group": "B",
+    "homeTeamId": "can",
+    "awayTeamId": "qat",
+    "kickoff": "2026-06-19T01:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-028",
+    "stage": "group",
+    "round": "Group A",
+    "group": "A",
+    "homeTeamId": "mex",
+    "awayTeamId": "kor",
+    "kickoff": "2026-06-19T04:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-029",
+    "stage": "group",
+    "round": "Group D",
+    "group": "D",
+    "homeTeamId": "usa",
+    "awayTeamId": "aus",
+    "kickoff": "2026-06-19T22:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-030",
+    "stage": "group",
+    "round": "Group C",
+    "group": "C",
+    "homeTeamId": "sco",
+    "awayTeamId": "mar",
+    "kickoff": "2026-06-20T01:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-031",
+    "stage": "group",
+    "round": "Group C",
+    "group": "C",
+    "homeTeamId": "bra",
+    "awayTeamId": "hai",
+    "kickoff": "2026-06-20T03:30:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-032",
+    "stage": "group",
+    "round": "Group D",
+    "group": "D",
+    "homeTeamId": "tur",
+    "awayTeamId": "par",
+    "kickoff": "2026-06-20T06:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-033",
+    "stage": "group",
+    "round": "Group F",
+    "group": "F",
+    "homeTeamId": "ned",
+    "awayTeamId": "swe",
+    "kickoff": "2026-06-20T20:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-034",
+    "stage": "group",
+    "round": "Group E",
+    "group": "E",
+    "homeTeamId": "ger",
+    "awayTeamId": "civ",
+    "kickoff": "2026-06-20T23:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-035",
+    "stage": "group",
+    "round": "Group E",
+    "group": "E",
+    "homeTeamId": "ecu",
+    "awayTeamId": "cuw",
+    "kickoff": "2026-06-21T03:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-036",
+    "stage": "group",
+    "round": "Group F",
+    "group": "F",
+    "homeTeamId": "tun",
+    "awayTeamId": "jpn",
+    "kickoff": "2026-06-21T07:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-037",
+    "stage": "group",
+    "round": "Group H",
+    "group": "H",
+    "homeTeamId": "esp",
+    "awayTeamId": "ksa",
+    "kickoff": "2026-06-21T19:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-038",
+    "stage": "group",
+    "round": "Group G",
+    "group": "G",
+    "homeTeamId": "bel",
+    "awayTeamId": "irn",
+    "kickoff": "2026-06-21T22:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-039",
+    "stage": "group",
+    "round": "Group H",
+    "group": "H",
+    "homeTeamId": "uru",
+    "awayTeamId": "cpv",
+    "kickoff": "2026-06-22T01:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-040",
+    "stage": "group",
+    "round": "Group G",
+    "group": "G",
+    "homeTeamId": "nzl",
+    "awayTeamId": "egy",
+    "kickoff": "2026-06-22T04:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-041",
+    "stage": "group",
+    "round": "Group J",
+    "group": "J",
+    "homeTeamId": "arg",
+    "awayTeamId": "aut",
+    "kickoff": "2026-06-22T20:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-042",
+    "stage": "group",
+    "round": "Group I",
+    "group": "I",
+    "homeTeamId": "fra",
+    "awayTeamId": "irq",
+    "kickoff": "2026-06-23T00:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-043",
+    "stage": "group",
+    "round": "Group I",
+    "group": "I",
+    "homeTeamId": "nor",
+    "awayTeamId": "sen",
+    "kickoff": "2026-06-23T03:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-044",
+    "stage": "group",
+    "round": "Group J",
+    "group": "J",
+    "homeTeamId": "jor",
+    "awayTeamId": "alg",
+    "kickoff": "2026-06-23T06:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-045",
+    "stage": "group",
+    "round": "Group K",
+    "group": "K",
+    "homeTeamId": "por",
+    "awayTeamId": "uzb",
+    "kickoff": "2026-06-23T20:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-046",
+    "stage": "group",
+    "round": "Group L",
+    "group": "L",
+    "homeTeamId": "eng",
+    "awayTeamId": "gha",
+    "kickoff": "2026-06-23T23:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-047",
+    "stage": "group",
+    "round": "Group L",
+    "group": "L",
+    "homeTeamId": "pan",
+    "awayTeamId": "cro",
+    "kickoff": "2026-06-24T02:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-048",
+    "stage": "group",
+    "round": "Group K",
+    "group": "K",
+    "homeTeamId": "col",
+    "awayTeamId": "cod",
+    "kickoff": "2026-06-24T05:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-049",
+    "stage": "group",
+    "round": "Group B",
+    "group": "B",
+    "homeTeamId": "sui",
+    "awayTeamId": "can",
+    "kickoff": "2026-06-24T22:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-050",
+    "stage": "group",
+    "round": "Group B",
+    "group": "B",
+    "homeTeamId": "bih",
+    "awayTeamId": "qat",
+    "kickoff": "2026-06-25T01:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-051",
+    "stage": "group",
+    "round": "Group C",
+    "group": "C",
+    "homeTeamId": "sco",
+    "awayTeamId": "bra",
+    "kickoff": "2026-06-25T01:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-052",
+    "stage": "group",
+    "round": "Group C",
+    "group": "C",
+    "homeTeamId": "mar",
+    "awayTeamId": "hai",
+    "kickoff": "2026-06-25T01:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-053",
+    "stage": "group",
+    "round": "Group A",
+    "group": "A",
+    "homeTeamId": "cze",
+    "awayTeamId": "mex",
+    "kickoff": "2026-06-25T04:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-054",
+    "stage": "group",
+    "round": "Group A",
+    "group": "A",
+    "homeTeamId": "rsa",
+    "awayTeamId": "kor",
+    "kickoff": "2026-06-25T04:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-055",
+    "stage": "group",
+    "round": "Group E",
+    "group": "E",
+    "homeTeamId": "cuw",
+    "awayTeamId": "civ",
+    "kickoff": "2026-06-25T23:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-056",
+    "stage": "group",
+    "round": "Group E",
+    "group": "E",
+    "homeTeamId": "ecu",
+    "awayTeamId": "ger",
+    "kickoff": "2026-06-25T23:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-057",
+    "stage": "group",
+    "round": "Group F",
+    "group": "F",
+    "homeTeamId": "jpn",
+    "awayTeamId": "swe",
+    "kickoff": "2026-06-26T02:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-058",
+    "stage": "group",
+    "round": "Group F",
+    "group": "F",
+    "homeTeamId": "tun",
+    "awayTeamId": "ned",
+    "kickoff": "2026-06-26T02:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-059",
+    "stage": "group",
+    "round": "Group D",
+    "group": "D",
+    "homeTeamId": "tur",
+    "awayTeamId": "usa",
+    "kickoff": "2026-06-26T05:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-060",
+    "stage": "group",
+    "round": "Group D",
+    "group": "D",
+    "homeTeamId": "par",
+    "awayTeamId": "aus",
+    "kickoff": "2026-06-26T05:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-061",
+    "stage": "group",
+    "round": "Group I",
+    "group": "I",
+    "homeTeamId": "nor",
+    "awayTeamId": "fra",
+    "kickoff": "2026-06-26T22:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-062",
+    "stage": "group",
+    "round": "Group I",
+    "group": "I",
+    "homeTeamId": "sen",
+    "awayTeamId": "irq",
+    "kickoff": "2026-06-26T22:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-063",
+    "stage": "group",
+    "round": "Group H",
+    "group": "H",
+    "homeTeamId": "cpv",
+    "awayTeamId": "ksa",
+    "kickoff": "2026-06-27T03:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-064",
+    "stage": "group",
+    "round": "Group H",
+    "group": "H",
+    "homeTeamId": "uru",
+    "awayTeamId": "esp",
+    "kickoff": "2026-06-27T03:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-065",
+    "stage": "group",
+    "round": "Group G",
+    "group": "G",
+    "homeTeamId": "egy",
+    "awayTeamId": "irn",
+    "kickoff": "2026-06-27T06:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-066",
+    "stage": "group",
+    "round": "Group G",
+    "group": "G",
+    "homeTeamId": "nzl",
+    "awayTeamId": "bel",
+    "kickoff": "2026-06-27T06:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-067",
+    "stage": "group",
+    "round": "Group L",
+    "group": "L",
+    "homeTeamId": "pan",
+    "awayTeamId": "eng",
+    "kickoff": "2026-06-28T00:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-068",
+    "stage": "group",
+    "round": "Group L",
+    "group": "L",
+    "homeTeamId": "cro",
+    "awayTeamId": "gha",
+    "kickoff": "2026-06-28T00:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-069",
+    "stage": "group",
+    "round": "Group K",
+    "group": "K",
+    "homeTeamId": "col",
+    "awayTeamId": "por",
+    "kickoff": "2026-06-28T02:30:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-070",
+    "stage": "group",
+    "round": "Group K",
+    "group": "K",
+    "homeTeamId": "cod",
+    "awayTeamId": "uzb",
+    "kickoff": "2026-06-28T02:30:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-071",
+    "stage": "group",
+    "round": "Group J",
+    "group": "J",
+    "homeTeamId": "alg",
+    "awayTeamId": "aut",
+    "kickoff": "2026-06-28T05:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "gs-072",
+    "stage": "group",
+    "round": "Group J",
+    "group": "J",
+    "homeTeamId": "jor",
+    "awayTeamId": "arg",
+    "kickoff": "2026-06-28T05:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "ko-073",
+    "stage": "knockout",
+    "round": "Round of 32",
+    "homeTeamId": "tbd",
+    "awayTeamId": "tbd",
+    "kickoff": "2026-06-28T22:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "ko-074",
+    "stage": "knockout",
+    "round": "Round of 32",
+    "homeTeamId": "tbd",
+    "awayTeamId": "tbd",
+    "kickoff": "2026-06-29T23:30:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "ko-075",
+    "stage": "knockout",
+    "round": "Round of 32",
+    "homeTeamId": "tbd",
+    "awayTeamId": "tbd",
+    "kickoff": "2026-06-30T04:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "ko-076",
+    "stage": "knockout",
+    "round": "Round of 32",
+    "homeTeamId": "tbd",
+    "awayTeamId": "tbd",
+    "kickoff": "2026-06-30T04:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "ko-077",
+    "stage": "knockout",
+    "round": "Round of 32",
+    "homeTeamId": "tbd",
+    "awayTeamId": "tbd",
+    "kickoff": "2026-07-01T00:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "ko-078",
+    "stage": "knockout",
+    "round": "Round of 32",
+    "homeTeamId": "tbd",
+    "awayTeamId": "tbd",
+    "kickoff": "2026-07-01T00:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "ko-079",
+    "stage": "knockout",
+    "round": "Round of 32",
+    "homeTeamId": "tbd",
+    "awayTeamId": "tbd",
+    "kickoff": "2026-07-01T04:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "ko-080",
+    "stage": "knockout",
+    "round": "Round of 32",
+    "homeTeamId": "tbd",
+    "awayTeamId": "tbd",
+    "kickoff": "2026-07-01T19:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "ko-081",
+    "stage": "knockout",
+    "round": "Round of 32",
+    "homeTeamId": "tbd",
+    "awayTeamId": "tbd",
+    "kickoff": "2026-07-01T23:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "ko-082",
+    "stage": "knockout",
+    "round": "Round of 32",
+    "homeTeamId": "tbd",
+    "awayTeamId": "tbd",
+    "kickoff": "2026-07-02T03:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "ko-083",
+    "stage": "knockout",
+    "round": "Round of 32",
+    "homeTeamId": "tbd",
+    "awayTeamId": "tbd",
+    "kickoff": "2026-07-03T02:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "ko-084",
+    "stage": "knockout",
+    "round": "Round of 32",
+    "homeTeamId": "tbd",
+    "awayTeamId": "tbd",
+    "kickoff": "2026-07-03T06:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "ko-085",
+    "stage": "knockout",
+    "round": "Round of 32",
+    "homeTeamId": "tbd",
+    "awayTeamId": "tbd",
+    "kickoff": "2026-07-03T21:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "ko-086",
+    "stage": "knockout",
+    "round": "Round of 32",
+    "homeTeamId": "tbd",
+    "awayTeamId": "tbd",
+    "kickoff": "2026-07-04T01:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "ko-087",
+    "stage": "knockout",
+    "round": "Round of 32",
+    "homeTeamId": "tbd",
+    "awayTeamId": "tbd",
+    "kickoff": "2026-07-04T04:30:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "ko-088",
+    "stage": "knockout",
+    "round": "Round of 32",
+    "homeTeamId": "tbd",
+    "awayTeamId": "tbd",
+    "kickoff": "2026-07-04T20:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "ko-089",
+    "stage": "knockout",
+    "round": "Round of 16",
+    "homeTeamId": "tbd",
+    "awayTeamId": "tbd",
+    "kickoff": "2026-07-05T00:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "ko-090",
+    "stage": "knockout",
+    "round": "Round of 16",
+    "homeTeamId": "tbd",
+    "awayTeamId": "tbd",
+    "kickoff": "2026-07-05T00:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "ko-091",
+    "stage": "knockout",
+    "round": "Round of 16",
+    "homeTeamId": "tbd",
+    "awayTeamId": "tbd",
+    "kickoff": "2026-07-05T23:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "ko-092",
+    "stage": "knockout",
+    "round": "Round of 16",
+    "homeTeamId": "tbd",
+    "awayTeamId": "tbd",
+    "kickoff": "2026-07-06T03:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "ko-093",
+    "stage": "knockout",
+    "round": "Round of 16",
+    "homeTeamId": "tbd",
+    "awayTeamId": "tbd",
+    "kickoff": "2026-07-06T22:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "ko-094",
+    "stage": "knockout",
+    "round": "Round of 16",
+    "homeTeamId": "tbd",
+    "awayTeamId": "tbd",
+    "kickoff": "2026-07-07T03:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "ko-095",
+    "stage": "knockout",
+    "round": "Round of 16",
+    "homeTeamId": "tbd",
+    "awayTeamId": "tbd",
+    "kickoff": "2026-07-07T19:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "ko-096",
+    "stage": "knockout",
+    "round": "Round of 16",
+    "homeTeamId": "tbd",
+    "awayTeamId": "tbd",
+    "kickoff": "2026-07-07T23:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "ko-097",
+    "stage": "knockout",
+    "round": "Quarter-finals",
+    "homeTeamId": "tbd",
+    "awayTeamId": "tbd",
+    "kickoff": "2026-07-09T23:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "ko-098",
+    "stage": "knockout",
+    "round": "Quarter-finals",
+    "homeTeamId": "tbd",
+    "awayTeamId": "tbd",
+    "kickoff": "2026-07-10T22:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "ko-099",
+    "stage": "knockout",
+    "round": "Quarter-finals",
+    "homeTeamId": "tbd",
+    "awayTeamId": "tbd",
+    "kickoff": "2026-07-12T00:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "ko-100",
+    "stage": "knockout",
+    "round": "Quarter-finals",
+    "homeTeamId": "tbd",
+    "awayTeamId": "tbd",
+    "kickoff": "2026-07-12T04:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "ko-101",
+    "stage": "knockout",
+    "round": "Semi-finals",
+    "homeTeamId": "tbd",
+    "awayTeamId": "tbd",
+    "kickoff": "2026-07-14T22:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "ko-102",
+    "stage": "knockout",
+    "round": "Semi-finals",
+    "homeTeamId": "tbd",
+    "awayTeamId": "tbd",
+    "kickoff": "2026-07-15T22:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "ko-103",
+    "stage": "knockout",
+    "round": "Third place play-off",
+    "homeTeamId": "tbd",
+    "awayTeamId": "tbd",
+    "kickoff": "2026-07-19T00:00:00+03:00",
+    "status": "upcoming"
+  },
+  {
+    "id": "ko-104",
+    "stage": "knockout",
+    "round": "Final",
+    "homeTeamId": "tbd",
+    "awayTeamId": "tbd",
+    "kickoff": "2026-07-19T22:00:00+03:00",
+    "status": "upcoming"
+  }
+]

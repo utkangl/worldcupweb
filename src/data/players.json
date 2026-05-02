@@ -1,0 +1,10 @@
+[
+  { "id": "p-messi", "name": "Lionel Messi", "country": "Argentina" },
+  { "id": "p-mbappe", "name": "Kylian Mbappé", "country": "France" },
+  { "id": "p-vini", "name": "Vinícius Júnior", "country": "Brazil" },
+  { "id": "p-bellingham", "name": "Jude Bellingham", "country": "England" },
+  { "id": "p-haaland", "name": "Erling Haaland", "country": "Norway" },
+  { "id": "p-pulisic", "name": "Christian Pulisic", "country": "United States" },
+  { "id": "p-son", "name": "Son Heung-min", "country": "South Korea" },
+  { "id": "p-yamal", "name": "Lamine Yamal", "country": "Spain" }
+]

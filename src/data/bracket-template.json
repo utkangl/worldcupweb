@@ -1,0 +1,37 @@
+{
+  "knockout": [
+    {
+      "round": "R16",
+      "matches": [
+        { "id": "r16-1", "home": "1A", "away": "2B" },
+        { "id": "r16-2", "home": "1C", "away": "2D" },
+        { "id": "r16-3", "home": "1E", "away": "2F" },
+        { "id": "r16-4", "home": "1G", "away": "2H" },
+        { "id": "r16-5", "home": "1B", "away": "2A" },
+        { "id": "r16-6", "home": "1D", "away": "2C" },
+        { "id": "r16-7", "home": "1F", "away": "2E" },
+        { "id": "r16-8", "home": "1H", "away": "2G" }
+      ]
+    },
+    {
+      "round": "QF",
+      "matches": [
+        { "id": "qf-1", "home": "r16-1", "away": "r16-2" },
+        { "id": "qf-2", "home": "r16-3", "away": "r16-4" },
+        { "id": "qf-3", "home": "r16-5", "away": "r16-6" },
+        { "id": "qf-4", "home": "r16-7", "away": "r16-8" }
+      ]
+    },
+    {
+      "round": "SF",
+      "matches": [
+        { "id": "sf-1", "home": "qf-1", "away": "qf-2" },
+        { "id": "sf-2", "home": "qf-3", "away": "qf-4" }
+      ]
+    },
+    {
+      "round": "Final",
+      "matches": [{ "id": "final", "home": "sf-1", "away": "sf-2" }]
+    }
+  ]
+}
