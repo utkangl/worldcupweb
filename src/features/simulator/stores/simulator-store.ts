@@ -10,14 +10,18 @@ export type GroupOrderMap = Record<string, string[]>;
 
 export interface SimulatorState {
   groupOrder: GroupOrderMap;
+  /** User-ordered list of third-placed team ids (up to 12); reconciled against live groups */
+  thirdPlaceOrder: string[];
   knockoutWinners: KnockoutWinnerMap;
   setGroupOrder: (groupLetter: string, orderedTeamIds: string[]) => void;
+  setThirdPlaceOrder: (orderedThirdTeamIds: string[]) => void;
   setKnockoutWinner: (matchId: string, teamId: string | null) => void;
   resetAll: () => void;
 }
 
 const initial = {
   groupOrder: {} as GroupOrderMap,
+  thirdPlaceOrder: [] as string[],
   knockoutWinners: {} as KnockoutWinnerMap,
 };
 
@@ -29,6 +33,8 @@ export const useSimulatorStore = create<SimulatorState>()(
         set((s) => ({
           groupOrder: { ...s.groupOrder, [groupLetter]: orderedTeamIds },
         })),
+      setThirdPlaceOrder: (orderedThirdTeamIds) =>
+        set({ thirdPlaceOrder: orderedThirdTeamIds }),
       setKnockoutWinner: (matchId, teamId) =>
         set((s) => ({
           knockoutWinners: {
@@ -39,9 +45,10 @@ export const useSimulatorStore = create<SimulatorState>()(
       resetAll: () => set({ ...initial }),
     }),
     {
-      name: "wc-simulator-v2",
+      name: "wc-simulator-v3",
       partialize: (state) => ({
         groupOrder: state.groupOrder,
+        thirdPlaceOrder: state.thirdPlaceOrder,
         knockoutWinners: state.knockoutWinners,
       }),
     }

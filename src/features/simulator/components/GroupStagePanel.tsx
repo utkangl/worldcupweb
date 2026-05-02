@@ -5,12 +5,10 @@ import {
   DndContext,
   type DragEndEvent,
   type DragStartEvent,
-  DragOverlay,
   KeyboardSensor,
+  MeasuringStrategy,
   PointerSensor,
   closestCenter,
-  defaultDropAnimationSideEffects,
-  type DropAnimation,
   useSensor,
   useSensors,
 } from "@dnd-kit/core";
@@ -27,10 +25,7 @@ import {
 } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import type { Team } from "@/lib/types";
-import {
-  normalizeGroupOrder,
-  standingsFromOrder,
-} from "@/features/simulator/lib/standings";
+import { normalizeGroupOrder } from "@/features/simulator/lib/standings";
 import { useSimulatorStore } from "@/features/simulator/stores/simulator-store";
 import { MaterialIcon } from "@/components/ui/MaterialIcon";
 
@@ -38,56 +33,32 @@ const GROUPS = [
   "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L",
 ] as const;
 
-/** Vertical-only drag + keep preview inside the list (`ul` parent of rows). Must match on `DragOverlay`. */
-const listDragModifiers = [restrictToVerticalAxis, restrictToParentElement];
+const listModifiers = [restrictToVerticalAxis, restrictToParentElement];
 
-const dropAnimation: DropAnimation = {
-  duration: 220,
-  easing: "cubic-bezier(0.25, 1, 0.5, 1)",
-  sideEffects: defaultDropAnimationSideEffects({
-    styles: { active: { opacity: "0.35" } },
-  }),
-};
-
-function RowPreview({
-  rank,
-  shortName,
-}: {
-  rank: number;
-  shortName: string;
-}) {
-  return (
-    <div
-      className="flex cursor-grabbing items-center gap-3 rounded-xl border border-[#CCFF00]/35 bg-[#2a2a2b] px-3 py-3 shadow-[0_16px_40px_rgba(0,0,0,0.55),0_0_0_1px_rgba(204,255,0,0.12)]"
-      style={{ transform: "scale(1.02)" }}
-    >
-      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#CCFF00]/15 font-mono text-sm font-semibold text-[#CCFF00]">
-        {rank}
-      </span>
-      <span className="min-w-0 flex-1 font-semibold tracking-tight text-zinc-50">
-        {shortName}
-      </span>
-      <MaterialIcon name="drag_indicator" className="text-xl text-zinc-400" />
-    </div>
-  );
+function rankClasses(rank: number) {
+  if (rank === 1) return "bg-[#CCFF00]/15 text-[#CCFF00]";
+  if (rank === 2) return "bg-white/[0.12] text-zinc-100";
+  return "bg-white/[0.06] text-zinc-400";
 }
 
 function SortableTeamRow({
   id,
   rank,
-  shortName,
+  name,
   canMoveUp,
   canMoveDown,
   onMoveUp,
   onMoveDown,
+  isAnyDragging,
 }: {
   id: string;
   rank: number;
-  shortName: string;
+  name: string;
   canMoveUp: boolean;
   canMoveDown: boolean;
   onMoveUp: () => void;
   onMoveDown: () => void;
+  isAnyDragging: boolean;
 }) {
   const {
     attributes,
@@ -98,66 +69,63 @@ function SortableTeamRow({
     isDragging,
   } = useSortable({ id });
 
-  const style = {
+  const style: React.CSSProperties = {
     transform: CSS.Transform.toString(transform),
     transition,
+    touchAction: "none",
   };
 
   return (
     <li
       ref={setNodeRef}
       style={style}
-      className={`relative rounded-xl border border-white/[0.06] bg-black/25 transition-[box-shadow,background-color,border-color,opacity] duration-200 ${
+      className={`relative flex select-none list-none items-center gap-2 rounded-xl border bg-black/25 px-2 py-2 transition-[box-shadow,background-color,border-color] duration-150 ${
         isDragging
-          ? "z-10 border-[#CCFF00]/20 bg-white/[0.03] opacity-45 shadow-[inset_0_0_0_1px_rgba(204,255,0,0.1)]"
-          : "hover:border-white/10 hover:bg-white/[0.04]"
+          ? "z-10 cursor-grabbing border-[#CCFF00]/45 bg-white/[0.05] shadow-[0_12px_30px_rgba(0,0,0,0.45),0_0_0_1px_rgba(204,255,0,0.18)]"
+          : `border-white/[0.06] ${isAnyDragging ? "" : "hover:border-white/15 hover:bg-white/[0.04]"} cursor-grab`
       }`}
+      {...attributes}
+      {...listeners}
     >
-      <div className="flex items-center gap-2 px-2 py-2.5">
-        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white/[0.06] font-mono text-sm text-zinc-400">
-          {rank}
-        </span>
-        <span className="min-w-0 flex-1 font-medium text-zinc-100">
-          {shortName}
-        </span>
+      <span
+        className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg font-mono text-sm font-semibold ${rankClasses(rank)}`}
+      >
+        {rank}
+      </span>
+      <span className="min-w-0 flex-1 truncate text-sm font-medium text-zinc-100">
+        {name}
+      </span>
+      <MaterialIcon
+        name="drag_indicator"
+        className="shrink-0 text-lg text-zinc-500"
+      />
+      <div className="flex shrink-0 gap-0.5">
         <button
           type="button"
-          className="flex shrink-0 touch-none items-center justify-center rounded-lg p-2 text-zinc-500 transition-colors hover:bg-white/10 hover:text-[#CCFF00] active:cursor-grabbing"
-          title="Drag to reorder"
-          aria-label="Drag to reorder"
-          {...attributes}
-          {...listeners}
+          disabled={!canMoveUp}
+          onPointerDown={(e) => e.stopPropagation()}
+          onClick={(e) => {
+            e.stopPropagation();
+            onMoveUp();
+          }}
+          className="rounded-lg p-1.5 text-zinc-400 transition-colors hover:bg-white/10 hover:text-zinc-100 disabled:pointer-events-none disabled:opacity-25"
+          aria-label="Bir yukarı"
         >
-          <MaterialIcon name="drag_indicator" className="text-xl" />
+          <MaterialIcon name="keyboard_arrow_up" />
         </button>
-        <div className="flex shrink-0 gap-0.5">
-          <button
-            type="button"
-            disabled={!canMoveUp}
-            onPointerDown={(e) => e.stopPropagation()}
-            onClick={(e) => {
-              e.stopPropagation();
-              onMoveUp();
-            }}
-            className="rounded-lg p-2 text-zinc-400 transition-colors hover:bg-white/10 hover:text-zinc-100 disabled:pointer-events-none disabled:opacity-25"
-            aria-label="Move up"
-          >
-            <MaterialIcon name="keyboard_arrow_up" />
-          </button>
-          <button
-            type="button"
-            disabled={!canMoveDown}
-            onPointerDown={(e) => e.stopPropagation()}
-            onClick={(e) => {
-              e.stopPropagation();
-              onMoveDown();
-            }}
-            className="rounded-lg p-2 text-zinc-400 transition-colors hover:bg-white/10 hover:text-zinc-100 disabled:pointer-events-none disabled:opacity-25"
-            aria-label="Move down"
-          >
-            <MaterialIcon name="keyboard_arrow_down" />
-          </button>
-        </div>
+        <button
+          type="button"
+          disabled={!canMoveDown}
+          onPointerDown={(e) => e.stopPropagation()}
+          onClick={(e) => {
+            e.stopPropagation();
+            onMoveDown();
+          }}
+          className="rounded-lg p-1.5 text-zinc-400 transition-colors hover:bg-white/10 hover:text-zinc-100 disabled:pointer-events-none disabled:opacity-25"
+          aria-label="Bir aşağı"
+        >
+          <MaterialIcon name="keyboard_arrow_down" />
+        </button>
       </div>
     </li>
   );
@@ -180,7 +148,7 @@ function SortableGroupList({
 
   const sensors = useSensors(
     useSensor(PointerSensor, {
-      activationConstraint: { distance: 6 },
+      activationConstraint: { distance: 5 },
     }),
     useSensor(KeyboardSensor, {
       coordinateGetter: sortableKeyboardCoordinates,
@@ -201,21 +169,20 @@ function SortableGroupList({
     setGroupOrder(letter, arrayMove(order, oldIndex, newIndex));
   };
 
-  const activeTeam = activeId
-    ? tg.find((x) => x.id === activeId)
-    : undefined;
-  const activeRank = activeId ? order.indexOf(activeId) + 1 : 0;
+  const onDragCancel = () => setActiveId(null);
 
   return (
     <DndContext
       sensors={sensors}
       collisionDetection={closestCenter}
-      modifiers={listDragModifiers}
+      modifiers={listModifiers}
+      measuring={{ droppable: { strategy: MeasuringStrategy.Always } }}
       onDragStart={onDragStart}
       onDragEnd={onDragEnd}
+      onDragCancel={onDragCancel}
     >
       <SortableContext items={order} strategy={verticalListSortingStrategy}>
-        <ul className="mb-4 flex flex-col gap-1.5 rounded-xl border border-white/[0.08] bg-black/15 p-2">
+        <ul className="flex flex-col gap-1.5">
           {order.map((teamId, i) => {
             const t = tg.find((x) => x.id === teamId);
             return (
@@ -223,7 +190,7 @@ function SortableGroupList({
                 key={teamId}
                 id={teamId}
                 rank={i + 1}
-                shortName={t?.shortName ?? teamId}
+                name={t?.name ?? teamId}
                 canMoveUp={i > 0}
                 canMoveDown={i < order.length - 1}
                 onMoveUp={() =>
@@ -232,93 +199,57 @@ function SortableGroupList({
                 onMoveDown={() =>
                   setGroupOrder(letter, arrayMove(order, i, i + 1))
                 }
+                isAnyDragging={activeId !== null}
               />
             );
           })}
         </ul>
       </SortableContext>
-      <DragOverlay modifiers={listDragModifiers} dropAnimation={dropAnimation}>
-        {activeId && activeTeam ? (
-          <RowPreview rank={activeRank} shortName={activeTeam.shortName} />
-        ) : null}
-      </DragOverlay>
     </DndContext>
   );
 }
 
 export function GroupStagePanel({ teams }: { teams: Team[] }) {
-  const { groupOrder } = useSimulatorStore();
-
   const byGroup = GROUPS.map((g) => ({
     letter: g,
     teams: teams.filter((t) => t.group === g),
   }));
 
   return (
-    <div className="space-y-8">
-      {byGroup.map(({ letter, teams: tg }) => {
-        const ids = tg.map((t) => t.id);
-        const fallback = tg.map((t) => t.id);
-        const table = standingsFromOrder(ids, groupOrder[letter], fallback);
+    <div>
+      <p className="mb-4 text-xs text-zinc-500">
+        Her grup tek sütun halinde 4 takım gösterir. Sıralamayı değiştirmek için
+        bir takımı tutup grubun içinde yukarı / aşağı sürükleyin (kart kutudan
+        çıkmaz). Oklar tek basamak kaydırır.
+      </p>
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+        {byGroup.map(({ letter, teams: tg }) => {
+          const ids = tg.map((t) => t.id);
+          const fallback = tg.map((t) => t.id);
 
-        return (
-          <details
-            key={letter}
-            className="group rounded-2xl border border-white/10 bg-[var(--surface)] open:border-[var(--accent)]/30"
-            open={letter === "A"}
-          >
-            <summary className="cursor-pointer list-none px-4 py-3 font-semibold text-zinc-200">
-              Group {letter}
-            </summary>
-            <div className="border-t border-white/10 px-4 pb-4 pt-2">
-              <p className="mb-3 text-xs text-zinc-500">
-                Drag the handle (or use arrows) to reorder — top is 1st place. Rows
-                animate like a playlist when you move them.
-              </p>
+          return (
+            <section
+              key={letter}
+              className="rounded-2xl border border-white/10 bg-[var(--surface)] p-3"
+            >
+              <header className="mb-2 flex items-center justify-between px-1">
+                <h3 className="text-sm font-semibold uppercase tracking-wide text-zinc-300">
+                  Group {letter}
+                </h3>
+                <span className="text-[11px] text-zinc-600">
+                  {tg.length} takım
+                </span>
+              </header>
               <SortableGroupList
                 letter={letter}
                 tg={tg}
                 ids={ids}
                 fallback={fallback}
               />
-              <div className="overflow-x-auto">
-                <table className="w-full min-w-[320px] text-left text-sm">
-                  <thead>
-                    <tr className="text-xs text-zinc-500">
-                      <th className="py-2">#</th>
-                      <th className="py-2">Team</th>
-                      <th className="py-2">P</th>
-                      <th className="py-2">GD</th>
-                      <th className="py-2">Pts</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {table.map((row) => {
-                      const t = tg.find((x) => x.id === row.teamId);
-                      return (
-                        <tr key={row.teamId} className="border-t border-white/5">
-                          <td className="py-2 font-mono text-zinc-400">
-                            {row.rank}
-                          </td>
-                          <td className="py-2 text-zinc-200">{t?.shortName}</td>
-                          <td className="py-2 text-zinc-500">{row.played}</td>
-                          <td className="py-2 text-zinc-500">
-                            {row.goalDifference > 0 ? "+" : ""}
-                            {row.goalDifference}
-                          </td>
-                          <td className="py-2 font-semibold text-zinc-100">
-                            {row.points}
-                          </td>
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </details>
-        );
-      })}
+            </section>
+          );
+        })}
+      </div>
     </div>
   );
 }
