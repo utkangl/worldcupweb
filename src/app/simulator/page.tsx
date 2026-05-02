@@ -5,7 +5,7 @@ import { getBracketTemplate, getTeams } from "@/lib/data/loaders";
 export const metadata: Metadata = {
   title: "Simulator",
   description:
-    "Order groups 1st–4th for the 48-team format, then play out the knockout bracket.",
+    "Three-step simulator: group order, third-place ranking, then the knockout bracket.",
 };
 
 export default function SimulatorPage() {
@@ -20,8 +20,8 @@ export default function SimulatorPage() {
           <span className="text-[#c3f400]">Simulator</span>
         </h1>
         <p className="mt-3 max-w-2xl text-lg text-on-surface-variant">
-          Set each group&apos;s finish order (1st–4th) for the 12-group World Cup,
-          then pick winners from the Round of 32 through the final.
+          Use the stepper: groups → third places → knockout. One screen at a time so
+          the flow stays short; you can jump between steps anytime.
         </p>
       </header>
       <SimulatorView teams={teams} template={template} />

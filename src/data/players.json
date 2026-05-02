@@ -6,5 +6,15 @@
   { "id": "p-haaland", "name": "Erling Haaland", "country": "Norway" },
   { "id": "p-pulisic", "name": "Christian Pulisic", "country": "United States" },
   { "id": "p-son", "name": "Son Heung-min", "country": "South Korea" },
-  { "id": "p-yamal", "name": "Lamine Yamal", "country": "Spain" }
+  { "id": "p-yamal", "name": "Lamine Yamal", "country": "Spain" },
+  { "id": "p-alisson", "name": "Alisson", "country": "Brazil" },
+  { "id": "p-courtois", "name": "Thibaut Courtois", "country": "Belgium" },
+  { "id": "p-martinez", "name": "Emiliano Martínez", "country": "Argentina" },
+  { "id": "p-pickford", "name": "Jordan Pickford", "country": "England" },
+  { "id": "p-musiala", "name": "Jamal Musiala", "country": "Germany" },
+  { "id": "p-pedri", "name": "Pedri", "country": "Spain" },
+  { "id": "p-rodri", "name": "Rodri", "country": "Spain" },
+  { "id": "p-kane", "name": "Harry Kane", "country": "England" },
+  { "id": "p-griezmann", "name": "Antoine Griezmann", "country": "France" },
+  { "id": "p-salah", "name": "Mohamed Salah", "country": "Egypt" }
 ]
