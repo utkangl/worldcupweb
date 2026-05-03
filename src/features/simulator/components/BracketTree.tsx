@@ -53,6 +53,8 @@ export function BracketTree({
   thirdPlacePriority,
   winners,
   onPickWinner,
+  /** Show only one knockout round (0-based index). Omit to show all rounds. */
+  roundFilterIndex,
 }: {
   template: BracketTemplate;
   teamById: Map<string, Team>;
@@ -61,13 +63,21 @@ export function BracketTree({
   thirdPlacePriority: string[];
   winners: Record<string, string | undefined>;
   onPickWinner: (matchId: string, teamId: string | null) => void;
+  roundFilterIndex?: number;
 }) {
   const groupResolver = (slot: string) =>
     resolveSimulatorSlot(standingsByGroup, slot, thirdPlacePriority);
 
+  const rounds =
+    roundFilterIndex !== undefined &&
+    roundFilterIndex >= 0 &&
+    roundFilterIndex < template.knockout.length
+      ? [template.knockout[roundFilterIndex]]
+      : template.knockout;
+
   return (
     <div className="space-y-10">
-      {template.knockout.map((round) => (
+      {rounds.map((round) => (
         <section key={round.round}>
           <h3 className="mb-4 text-sm font-semibold uppercase tracking-wide text-zinc-500">
             {round.round}

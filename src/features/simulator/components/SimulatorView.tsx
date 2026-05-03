@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import type { BracketTemplate, GroupStanding, Team } from "@/lib/types";
 import {
   reconcileThirdPlaceOrder,
@@ -20,6 +20,16 @@ const GROUPS = [
 
 const STEP_LAST = 2;
 
+function shortKnockoutTab(roundName: string): string {
+  if (roundName.includes("32")) return "R32";
+  if (roundName.includes("16")) return "R16";
+  if (roundName.includes("Quarter")) return "QF";
+  if (roundName.includes("Semi")) return "SF";
+  if (roundName.includes("Third")) return "3rd";
+  if (roundName === "Final") return "Final";
+  return roundName.slice(0, 5);
+}
+
 export function SimulatorView({
   teams,
   template,
@@ -28,6 +38,7 @@ export function SimulatorView({
   template: BracketTemplate;
 }) {
   const [step, setStep] = useState(0);
+  const [koRound, setKoRound] = useState(0);
 
   const {
     groupOrder,
@@ -65,6 +76,33 @@ export function SimulatorView({
   }, [knockoutWinners]);
 
   const champion = winnersChain["ko-104"];
+  const koLastIndex = Math.max(0, template.knockout.length - 1);
+
+  useEffect(() => {
+    setKoRound((r) => Math.min(r, koLastIndex));
+  }, [koLastIndex]);
+
+  const handleBack = () => {
+    if (step === 2 && koRound > 0) {
+      setKoRound((r) => r - 1);
+      return;
+    }
+    setStep((s) => Math.max(0, s - 1));
+  };
+
+  const handleNext = () => {
+    if (step < STEP_LAST) {
+      setStep((s) => s + 1);
+      return;
+    }
+    if (step === STEP_LAST && koRound < koLastIndex) {
+      setKoRound((r) => r + 1);
+    }
+  };
+
+  const nextDisabled = step === STEP_LAST && koRound >= koLastIndex;
+  const nextLabel =
+    step < STEP_LAST ? "Next" : koRound < koLastIndex ? "Next round" : "Done";
 
   return (
     <div className="space-y-8">
@@ -153,8 +191,34 @@ export function SimulatorView({
               Knockout
             </h2>
             <p className="text-sm text-zinc-500">
-              Pick winners round by round. Earlier ties unlock later ones.
+              Pick winners round by round. Use the tabs to focus one knockout stage at
+              a time — less scrolling.
             </p>
+            <div
+              role="tablist"
+              aria-label="Knockout round"
+              className="flex flex-wrap gap-2 rounded-xl border border-white/10 bg-black/30 p-2"
+            >
+              {template.knockout.map((r, i) => (
+                <button
+                  key={r.round}
+                  type="button"
+                  role="tab"
+                  aria-selected={i === koRound}
+                  onClick={() => setKoRound(i)}
+                  className={`rounded-lg px-3 py-2 text-xs font-semibold uppercase tracking-wide transition ${
+                    i === koRound
+                      ? "bg-[#CCFF00]/20 text-[#CCFF00] ring-1 ring-[#CCFF00]/45"
+                      : "text-zinc-500 hover:bg-white/10 hover:text-zinc-200"
+                  }`}
+                >
+                  <span className="block">{shortKnockoutTab(r.round)}</span>
+                  <span className="mt-0.5 block max-w-[8rem] truncate text-[10px] font-normal normal-case tracking-normal text-zinc-500">
+                    {r.round}
+                  </span>
+                </button>
+              ))}
+            </div>
             <BracketTree
               template={template}
               teamById={teamById}
@@ -162,6 +226,7 @@ export function SimulatorView({
               thirdPlacePriority={thirdPlacePriority}
               winners={winnersChain}
               onPickWinner={(matchId, teamId) => setKnockoutWinner(matchId, teamId)}
+              roundFilterIndex={koRound}
             />
             {champion ? (
               <p className="rounded-xl border border-[#CCFF00]/25 bg-[#CCFF00]/[0.06] py-4 text-center font-lexend text-lg font-semibold text-[#CCFF00]">
@@ -178,25 +243,30 @@ export function SimulatorView({
           variant="ghost"
           className="min-w-[7rem]"
           disabled={step === 0}
-          onClick={() => setStep((s) => Math.max(0, s - 1))}
+          onClick={handleBack}
         >
           <span className="inline-flex items-center gap-1">
             <MaterialIcon name="chevron_left" className="!text-xl" />
-            Back
+            {step === 2 && koRound > 0 ? "Prev round" : "Back"}
           </span>
         </Button>
         <span className="font-mono text-xs text-zinc-500">
           Step {step + 1} / 3
+          {step === 2 ? (
+            <span className="block text-center text-[10px] text-zinc-600">
+              KO {koRound + 1}/{template.knockout.length}
+            </span>
+          ) : null}
         </span>
         <Button
           type="button"
           variant="primary"
           className="min-w-[7rem]"
-          disabled={step >= STEP_LAST}
-          onClick={() => setStep((s) => Math.min(STEP_LAST, s + 1))}
+          disabled={nextDisabled}
+          onClick={handleNext}
         >
           <span className="inline-flex items-center gap-1">
-            Next
+            {nextLabel}
             <MaterialIcon name="chevron_right" className="!text-xl" />
           </span>
         </Button>

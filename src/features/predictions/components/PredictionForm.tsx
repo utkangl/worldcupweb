@@ -2,9 +2,11 @@
 
 import { useMemo, type ReactNode } from "react";
 import { usePredictionStore } from "@/features/predictions/stores/prediction-store";
+import { bumpPredictionPick } from "@/lib/community-stats";
 import type { PlayerOption, Team } from "@/lib/types";
 import { Button } from "@/components/ui/Button";
 import { MaterialIcon } from "@/components/ui/MaterialIcon";
+import { PlayerSearchSelect } from "@/features/predictions/components/PlayerSearchSelect";
 
 const SELECT_CLASS =
   "mt-2 w-full appearance-none rounded-xl border border-white/10 bg-[#0e0e0f] px-3 py-3 pr-11 text-sm text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] transition focus:border-[#c3f400] focus:outline-none focus:ring-1 focus:ring-[#c3f400]";
@@ -197,7 +199,11 @@ export function PredictionForm({
               <select
                 className={SELECT_CLASS}
                 value={championTeamId}
-                onChange={(e) => setChampion(e.target.value)}
+                onChange={(e) => {
+                  const v = e.target.value;
+                  setChampion(v);
+                  if (v) bumpPredictionPick("champion", v);
+                }}
               >
                 <option value="">Select nation</option>
                 {teamsSorted.map((t) => (
@@ -222,7 +228,11 @@ export function PredictionForm({
               <select
                 className={SELECT_CLASS}
                 value={runnerUpTeamId}
-                onChange={(e) => setRunnerUp(e.target.value)}
+                onChange={(e) => {
+                  const v = e.target.value;
+                  setRunnerUp(v);
+                  if (v) bumpPredictionPick("runnerUp", v);
+                }}
               >
                 <option value="">Select nation</option>
                 {runnerUpChoices.map((t) => (
@@ -247,7 +257,11 @@ export function PredictionForm({
               <select
                 className={SELECT_CLASS}
                 value={thirdPlaceTeamId}
-                onChange={(e) => setThirdPlace(e.target.value)}
+                onChange={(e) => {
+                  const v = e.target.value;
+                  setThirdPlace(v);
+                  if (v) bumpPredictionPick("thirdPlace", v);
+                }}
               >
                 <option value="">Select nation</option>
                 {thirdChoices.map((t) => (
@@ -280,7 +294,11 @@ export function PredictionForm({
           <select
             className={SELECT_CLASS}
             value={surpriseTeamId}
-            onChange={(e) => setSurprise(e.target.value)}
+            onChange={(e) => {
+              const v = e.target.value;
+              setSurprise(v);
+              if (v) bumpPredictionPick("surprise", v);
+            }}
           >
             <option value="">Select nation</option>
             {surpriseChoices.map((t) => (
@@ -305,23 +323,16 @@ export function PredictionForm({
             title="Golden Boot"
             hint="Top scorer of the tournament."
           >
-            <label className="block text-xs font-medium text-zinc-400">
-              Player
-            </label>
-            <SelectShell>
-              <select
-                className={SELECT_CLASS}
-                value={goldenBootPlayerId}
-                onChange={(e) => setGoldenBoot(e.target.value)}
-              >
-                <option value="">Select player</option>
-                {players.map((p) => (
-                  <option key={p.id} value={p.id}>
-                    {p.name} ({p.country})
-                  </option>
-                ))}
-              </select>
-            </SelectShell>
+            <PlayerSearchSelect
+              id="pred-golden-boot"
+              label="Player"
+              players={players}
+              value={goldenBootPlayerId}
+              onChange={(id) => {
+                setGoldenBoot(id);
+                if (id) bumpPredictionPick("goldenBoot", id);
+              }}
+            />
             <label className="mt-3 block text-xs font-medium text-zinc-400">
               Predicted goal total (optional)
             </label>
@@ -343,23 +354,16 @@ export function PredictionForm({
             hint="Most assists."
             accent="cyan"
           >
-            <label className="block text-xs font-medium text-zinc-400">
-              Player
-            </label>
-            <SelectShell>
-              <select
-                className={SELECT_CLASS}
-                value={topAssistPlayerId}
-                onChange={(e) => setTopAssist(e.target.value)}
-              >
-                <option value="">Select player</option>
-                {players.map((p) => (
-                  <option key={p.id} value={p.id}>
-                    {p.name} ({p.country})
-                  </option>
-                ))}
-              </select>
-            </SelectShell>
+            <PlayerSearchSelect
+              id="pred-assists"
+              label="Player"
+              players={players}
+              value={topAssistPlayerId}
+              onChange={(id) => {
+                setTopAssist(id);
+                if (id) bumpPredictionPick("assists", id);
+              }}
+            />
           </FieldCard>
 
           <FieldCard
@@ -367,23 +371,13 @@ export function PredictionForm({
             title="Golden Glove"
             hint="Best goalkeeper of the tournament."
           >
-            <label className="block text-xs font-medium text-zinc-400">
-              Player
-            </label>
-            <SelectShell>
-              <select
-                className={SELECT_CLASS}
-                value={goldenGlovePlayerId}
-                onChange={(e) => setGoldenGlove(e.target.value)}
-              >
-                <option value="">Select player</option>
-                {players.map((p) => (
-                  <option key={p.id} value={p.id}>
-                    {p.name} ({p.country})
-                  </option>
-                ))}
-              </select>
-            </SelectShell>
+            <PlayerSearchSelect
+              id="pred-glove"
+              label="Player"
+              players={players}
+              value={goldenGlovePlayerId}
+              onChange={setGoldenGlove}
+            />
           </FieldCard>
 
           <FieldCard
@@ -392,23 +386,16 @@ export function PredictionForm({
             hint="Standout U-21 talent."
             accent="cyan"
           >
-            <label className="block text-xs font-medium text-zinc-400">
-              Player
-            </label>
-            <SelectShell>
-              <select
-                className={SELECT_CLASS}
-                value={youngPlayerPlayerId}
-                onChange={(e) => setYoungPlayer(e.target.value)}
-              >
-                <option value="">Select player</option>
-                {players.map((p) => (
-                  <option key={p.id} value={p.id}>
-                    {p.name} ({p.country})
-                  </option>
-                ))}
-              </select>
-            </SelectShell>
+            <PlayerSearchSelect
+              id="pred-young"
+              label="Player"
+              players={players}
+              value={youngPlayerPlayerId}
+              onChange={(id) => {
+                setYoungPlayer(id);
+                if (id) bumpPredictionPick("youngPlayer", id);
+              }}
+            />
           </FieldCard>
         </div>
       </section>

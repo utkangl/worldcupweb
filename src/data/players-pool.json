@@ -1,0 +1,737 @@
+[
+  {
+    "id": "p-pool-0",
+    "name": "Alex Silva",
+    "country": "Algeria"
+  },
+  {
+    "id": "p-pool-1",
+    "name": "Lucas Rodríguez",
+    "country": "Algeria"
+  },
+  {
+    "id": "p-pool-2",
+    "name": "Diego Fernández",
+    "country": "Algeria"
+  },
+  {
+    "id": "p-pool-3",
+    "name": "Marco Fernández",
+    "country": "Argentina"
+  },
+  {
+    "id": "p-pool-4",
+    "name": "Renato Alves",
+    "country": "Argentina"
+  },
+  {
+    "id": "p-pool-5",
+    "name": "Rafa Pereira",
+    "country": "Argentina"
+  },
+  {
+    "id": "p-pool-6",
+    "name": "Gabriel Pereira",
+    "country": "Australia"
+  },
+  {
+    "id": "p-pool-7",
+    "name": "Iker Neuer",
+    "country": "Australia"
+  },
+  {
+    "id": "p-pool-8",
+    "name": "Thiago Musiala",
+    "country": "Australia"
+  },
+  {
+    "id": "p-pool-9",
+    "name": "Sergio Musiala",
+    "country": "Austria"
+  },
+  {
+    "id": "p-pool-10",
+    "name": "André Wirtz",
+    "country": "Austria"
+  },
+  {
+    "id": "p-pool-11",
+    "name": "Manuel Stones",
+    "country": "Austria"
+  },
+  {
+    "id": "p-pool-12",
+    "name": "Pedro Stones",
+    "country": "Belgium"
+  },
+  {
+    "id": "p-pool-13",
+    "name": "Nicolas Saka",
+    "country": "Belgium"
+  },
+  {
+    "id": "p-pool-14",
+    "name": "Kai Kane",
+    "country": "Belgium"
+  },
+  {
+    "id": "p-pool-15",
+    "name": "Julian Kane",
+    "country": "Bosnia and Herzegovina"
+  },
+  {
+    "id": "p-pool-16",
+    "name": "Jamal Depay",
+    "country": "Bosnia and Herzegovina"
+  },
+  {
+    "id": "p-pool-17",
+    "name": "Jack Mbappé",
+    "country": "Bosnia and Herzegovina"
+  },
+  {
+    "id": "p-pool-18",
+    "name": "Phil Mbappé",
+    "country": "Brazil"
+  },
+  {
+    "id": "p-pool-19",
+    "name": "Harry Camavinga",
+    "country": "Brazil"
+  },
+  {
+    "id": "p-pool-20",
+    "name": "Bukayo Vitinha",
+    "country": "Brazil"
+  },
+  {
+    "id": "p-pool-21",
+    "name": "Marcus Vitinha",
+    "country": "Canada"
+  },
+  {
+    "id": "p-pool-22",
+    "name": "Declan Yamal",
+    "country": "Canada"
+  },
+  {
+    "id": "p-pool-23",
+    "name": "Federico Osimhen",
+    "country": "Canada"
+  },
+  {
+    "id": "p-pool-24",
+    "name": "Jude Osimhen",
+    "country": "Cape Verde"
+  },
+  {
+    "id": "p-pool-25",
+    "name": "Lorenzo Santos",
+    "country": "Cape Verde"
+  },
+  {
+    "id": "p-pool-26",
+    "name": "Alessandro Martínez",
+    "country": "Cape Verde"
+  },
+  {
+    "id": "p-pool-27",
+    "name": "Gianluigi Martínez",
+    "country": "Colombia"
+  },
+  {
+    "id": "p-pool-28",
+    "name": "Matthijs Gomes",
+    "country": "Colombia"
+  },
+  {
+    "id": "p-pool-29",
+    "name": "Memphis Souza",
+    "country": "Colombia"
+  },
+  {
+    "id": "p-pool-30",
+    "name": "Frenkie Souza",
+    "country": "Croatia"
+  },
+  {
+    "id": "p-pool-31",
+    "name": "Virgil Carvalho",
+    "country": "Croatia"
+  },
+  {
+    "id": "p-pool-32",
+    "name": "Romelu Kimmich",
+    "country": "Croatia"
+  },
+  {
+    "id": "p-pool-33",
+    "name": "Kevin Kimmich",
+    "country": "Curaçao"
+  },
+  {
+    "id": "p-pool-34",
+    "name": "Youri Sané",
+    "country": "Curaçao"
+  },
+  {
+    "id": "p-pool-35",
+    "name": "Dayot Havertz",
+    "country": "Curaçao"
+  },
+  {
+    "id": "p-pool-36",
+    "name": "Leandro Havertz",
+    "country": "Czechia"
+  },
+  {
+    "id": "p-pool-37",
+    "name": "Mike Walker",
+    "country": "Czechia"
+  },
+  {
+    "id": "p-pool-38",
+    "name": "Ousmane Foden",
+    "country": "Czechia"
+  },
+  {
+    "id": "p-pool-39",
+    "name": "Antoine Foden",
+    "country": "DR Congo"
+  },
+  {
+    "id": "p-pool-40",
+    "name": "Kylian van Dijk",
+    "country": "DR Congo"
+  },
+  {
+    "id": "p-pool-41",
+    "name": "William Dumfries",
+    "country": "DR Congo"
+  },
+  {
+    "id": "p-pool-42",
+    "name": "Aurélien Dumfries",
+    "country": "Ecuador"
+  },
+  {
+    "id": "p-pool-43",
+    "name": "Bruno Griezmann",
+    "country": "Ecuador"
+  },
+  {
+    "id": "p-pool-44",
+    "name": "Rúben Ramos",
+    "country": "Ecuador"
+  },
+  {
+    "id": "p-pool-45",
+    "name": "Bernardo Ramos",
+    "country": "Egypt"
+  },
+  {
+    "id": "p-pool-46",
+    "name": "João Leão",
+    "country": "Egypt"
+  },
+  {
+    "id": "p-pool-47",
+    "name": "Rodrigo Pedri",
+    "country": "Egypt"
+  },
+  {
+    "id": "p-pool-48",
+    "name": "Cristiano Pedri",
+    "country": "England"
+  },
+  {
+    "id": "p-pool-49",
+    "name": "Ferran Martinez",
+    "country": "England"
+  },
+  {
+    "id": "p-pool-50",
+    "name": "Lamine García",
+    "country": "England"
+  },
+  {
+    "id": "p-pool-51",
+    "name": "Álvaro García",
+    "country": "France"
+  },
+  {
+    "id": "p-pool-52",
+    "name": "Dani López",
+    "country": "France"
+  },
+  {
+    "id": "p-pool-53",
+    "name": "Gavi Costa",
+    "country": "France"
+  },
+  {
+    "id": "p-pool-54",
+    "name": "Nico Costa",
+    "country": "Germany"
+  },
+  {
+    "id": "p-pool-55",
+    "name": "Eduardo Oliveira",
+    "country": "Germany"
+  },
+  {
+    "id": "p-pool-56",
+    "name": "Neymar Müller",
+    "country": "Germany"
+  },
+  {
+    "id": "p-pool-57",
+    "name": "Victor Müller",
+    "country": "Ghana"
+  },
+  {
+    "id": "p-pool-58",
+    "name": "Richarlison Goretzka",
+    "country": "Ghana"
+  },
+  {
+    "id": "p-pool-59",
+    "name": "Endrick Gnabry",
+    "country": "Ghana"
+  },
+  {
+    "id": "p-pool-60",
+    "name": "Gabriel Martinelli Gnabry",
+    "country": "Haiti"
+  },
+  {
+    "id": "p-pool-61",
+    "name": "Alex Rüdiger",
+    "country": "Haiti"
+  },
+  {
+    "id": "p-pool-62",
+    "name": "Lucas Rice",
+    "country": "Haiti"
+  },
+  {
+    "id": "p-pool-63",
+    "name": "João Rice",
+    "country": "Iran"
+  },
+  {
+    "id": "p-pool-64",
+    "name": "Marco Bellingham",
+    "country": "Iran"
+  },
+  {
+    "id": "p-pool-65",
+    "name": "Renato De Jong",
+    "country": "Iran"
+  },
+  {
+    "id": "p-pool-66",
+    "name": "Diego De Jong",
+    "country": "Iraq"
+  },
+  {
+    "id": "p-pool-67",
+    "name": "Gabriel Martínez",
+    "country": "Iraq"
+  },
+  {
+    "id": "p-pool-68",
+    "name": "Iker Saliba",
+    "country": "Iraq"
+  },
+  {
+    "id": "p-pool-69",
+    "name": "Rafa Saliba",
+    "country": "Ivory Coast"
+  },
+  {
+    "id": "p-pool-70",
+    "name": "Sergio Cancelo",
+    "country": "Ivory Coast"
+  },
+  {
+    "id": "p-pool-71",
+    "name": "André Félix",
+    "country": "Ivory Coast"
+  },
+  {
+    "id": "p-pool-72",
+    "name": "Thiago Félix",
+    "country": "Japan"
+  },
+  {
+    "id": "p-pool-73",
+    "name": "Pedro Williams",
+    "country": "Japan"
+  },
+  {
+    "id": "p-pool-74",
+    "name": "Nicolas Silva",
+    "country": "Japan"
+  },
+  {
+    "id": "p-pool-75",
+    "name": "Manuel Silva",
+    "country": "Jordan"
+  },
+  {
+    "id": "p-pool-76",
+    "name": "Julian Rodríguez",
+    "country": "Jordan"
+  },
+  {
+    "id": "p-pool-77",
+    "name": "Jamal Fernández",
+    "country": "Jordan"
+  },
+  {
+    "id": "p-pool-78",
+    "name": "Kai Fernández",
+    "country": "Mexico"
+  },
+  {
+    "id": "p-pool-79",
+    "name": "Phil Alves",
+    "country": "Mexico"
+  },
+  {
+    "id": "p-pool-80",
+    "name": "Harry Pereira",
+    "country": "Mexico"
+  },
+  {
+    "id": "p-pool-81",
+    "name": "Jack Pereira",
+    "country": "Morocco"
+  },
+  {
+    "id": "p-pool-82",
+    "name": "Marcus Neuer",
+    "country": "Morocco"
+  },
+  {
+    "id": "p-pool-83",
+    "name": "Declan Musiala",
+    "country": "Morocco"
+  },
+  {
+    "id": "p-pool-84",
+    "name": "Bukayo Musiala",
+    "country": "Netherlands"
+  },
+  {
+    "id": "p-pool-85",
+    "name": "Jude Wirtz",
+    "country": "Netherlands"
+  },
+  {
+    "id": "p-pool-86",
+    "name": "Lorenzo Stones",
+    "country": "Netherlands"
+  },
+  {
+    "id": "p-pool-87",
+    "name": "Federico Stones",
+    "country": "New Zealand"
+  },
+  {
+    "id": "p-pool-88",
+    "name": "Gianluigi Saka",
+    "country": "New Zealand"
+  },
+  {
+    "id": "p-pool-89",
+    "name": "Matthijs Kane",
+    "country": "New Zealand"
+  },
+  {
+    "id": "p-pool-90",
+    "name": "Alessandro Kane",
+    "country": "Norway"
+  },
+  {
+    "id": "p-pool-91",
+    "name": "Frenkie Depay",
+    "country": "Norway"
+  },
+  {
+    "id": "p-pool-92",
+    "name": "Virgil Mbappé",
+    "country": "Norway"
+  },
+  {
+    "id": "p-pool-93",
+    "name": "Memphis Mbappé",
+    "country": "Panama"
+  },
+  {
+    "id": "p-pool-94",
+    "name": "Kevin Camavinga",
+    "country": "Panama"
+  },
+  {
+    "id": "p-pool-95",
+    "name": "Youri Vitinha",
+    "country": "Panama"
+  },
+  {
+    "id": "p-pool-96",
+    "name": "Romelu Vitinha",
+    "country": "Paraguay"
+  },
+  {
+    "id": "p-pool-97",
+    "name": "Leandro Yamal",
+    "country": "Paraguay"
+  },
+  {
+    "id": "p-pool-98",
+    "name": "Mike Osimhen",
+    "country": "Paraguay"
+  },
+  {
+    "id": "p-pool-99",
+    "name": "Dayot Osimhen",
+    "country": "Portugal"
+  },
+  {
+    "id": "p-pool-100",
+    "name": "Antoine Santos",
+    "country": "Portugal"
+  },
+  {
+    "id": "p-pool-101",
+    "name": "Kylian Martínez",
+    "country": "Portugal"
+  },
+  {
+    "id": "p-pool-102",
+    "name": "Ousmane Martínez",
+    "country": "Qatar"
+  },
+  {
+    "id": "p-pool-103",
+    "name": "Aurélien Gomes",
+    "country": "Qatar"
+  },
+  {
+    "id": "p-pool-104",
+    "name": "Bruno Souza",
+    "country": "Qatar"
+  },
+  {
+    "id": "p-pool-105",
+    "name": "William Souza",
+    "country": "Saudi Arabia"
+  },
+  {
+    "id": "p-pool-106",
+    "name": "Bernardo Carvalho",
+    "country": "Saudi Arabia"
+  },
+  {
+    "id": "p-pool-107",
+    "name": "João Kimmich",
+    "country": "Saudi Arabia"
+  },
+  {
+    "id": "p-pool-108",
+    "name": "Rúben Kimmich",
+    "country": "Scotland"
+  },
+  {
+    "id": "p-pool-109",
+    "name": "Cristiano Sané",
+    "country": "Scotland"
+  },
+  {
+    "id": "p-pool-110",
+    "name": "Ferran Havertz",
+    "country": "Scotland"
+  },
+  {
+    "id": "p-pool-111",
+    "name": "Rodrigo Havertz",
+    "country": "Senegal"
+  },
+  {
+    "id": "p-pool-112",
+    "name": "Álvaro Walker",
+    "country": "Senegal"
+  },
+  {
+    "id": "p-pool-113",
+    "name": "Dani Foden",
+    "country": "Senegal"
+  },
+  {
+    "id": "p-pool-114",
+    "name": "Lamine Foden",
+    "country": "South Africa"
+  },
+  {
+    "id": "p-pool-115",
+    "name": "Nico van Dijk",
+    "country": "South Africa"
+  },
+  {
+    "id": "p-pool-116",
+    "name": "Eduardo Dumfries",
+    "country": "South Africa"
+  },
+  {
+    "id": "p-pool-117",
+    "name": "Gavi Dumfries",
+    "country": "South Korea"
+  },
+  {
+    "id": "p-pool-118",
+    "name": "Victor Griezmann",
+    "country": "South Korea"
+  },
+  {
+    "id": "p-pool-119",
+    "name": "Richarlison Ramos",
+    "country": "South Korea"
+  },
+  {
+    "id": "p-pool-120",
+    "name": "Neymar Ramos",
+    "country": "Spain"
+  },
+  {
+    "id": "p-pool-121",
+    "name": "Gabriel Martinelli Leão",
+    "country": "Spain"
+  },
+  {
+    "id": "p-pool-122",
+    "name": "Alex Pedri",
+    "country": "Spain"
+  },
+  {
+    "id": "p-pool-123",
+    "name": "Endrick Pedri",
+    "country": "Sweden"
+  },
+  {
+    "id": "p-pool-124",
+    "name": "João Martinez",
+    "country": "Sweden"
+  },
+  {
+    "id": "p-pool-125",
+    "name": "Marco García",
+    "country": "Sweden"
+  },
+  {
+    "id": "p-pool-126",
+    "name": "Lucas García",
+    "country": "Switzerland"
+  },
+  {
+    "id": "p-pool-127",
+    "name": "Diego López",
+    "country": "Switzerland"
+  },
+  {
+    "id": "p-pool-128",
+    "name": "Gabriel Costa",
+    "country": "Switzerland"
+  },
+  {
+    "id": "p-pool-129",
+    "name": "Renato Costa",
+    "country": "TBD"
+  },
+  {
+    "id": "p-pool-130",
+    "name": "Rafa Oliveira",
+    "country": "TBD"
+  },
+  {
+    "id": "p-pool-131",
+    "name": "Sergio Müller",
+    "country": "TBD"
+  },
+  {
+    "id": "p-pool-132",
+    "name": "Iker Müller",
+    "country": "Tunisia"
+  },
+  {
+    "id": "p-pool-133",
+    "name": "Thiago Goretzka",
+    "country": "Tunisia"
+  },
+  {
+    "id": "p-pool-134",
+    "name": "Pedro Gnabry",
+    "country": "Tunisia"
+  },
+  {
+    "id": "p-pool-135",
+    "name": "André Gnabry",
+    "country": "Türkiye"
+  },
+  {
+    "id": "p-pool-136",
+    "name": "Manuel Rüdiger",
+    "country": "Türkiye"
+  },
+  {
+    "id": "p-pool-137",
+    "name": "Julian Rice",
+    "country": "Türkiye"
+  },
+  {
+    "id": "p-pool-138",
+    "name": "Nicolas Rice",
+    "country": "USA"
+  },
+  {
+    "id": "p-pool-139",
+    "name": "Kai Bellingham",
+    "country": "USA"
+  },
+  {
+    "id": "p-pool-140",
+    "name": "Phil De Jong",
+    "country": "USA"
+  },
+  {
+    "id": "p-pool-141",
+    "name": "Jamal De Jong",
+    "country": "Uruguay"
+  },
+  {
+    "id": "p-pool-142",
+    "name": "Jack Martínez",
+    "country": "Uruguay"
+  },
+  {
+    "id": "p-pool-143",
+    "name": "Marcus Saliba",
+    "country": "Uruguay"
+  },
+  {
+    "id": "p-pool-144",
+    "name": "Harry Saliba",
+    "country": "Uzbekistan"
+  },
+  {
+    "id": "p-pool-145",
+    "name": "Bukayo Cancelo",
+    "country": "Uzbekistan"
+  },
+  {
+    "id": "p-pool-146",
+    "name": "Jude Félix",
+    "country": "Uzbekistan"
+  }
+]

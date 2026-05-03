@@ -1,6 +1,27 @@
 import Link from "next/link";
 import { MaterialIcon } from "@/components/ui/MaterialIcon";
 
+function CornerGlow({ color }: { color: "lime" | "cyan" | "purple" }) {
+  const map = {
+    lime: "from-[#CCFF00]/25 to-[#CCFF00]/0",
+    cyan: "from-[#00e0ff]/22 to-[#00e0ff]/0",
+    purple: "from-purple-400/20 to-purple-500/0",
+  } as const;
+  return (
+    <div
+      className="pointer-events-none absolute inset-0 overflow-hidden rounded-xl"
+      aria-hidden
+    >
+      <div
+        className={`absolute -bottom-16 -right-16 h-56 w-56 rounded-full bg-gradient-to-tl ${map[color]} blur-3xl`}
+      />
+      <div
+        className={`absolute -top-10 -left-10 h-40 w-40 rounded-full bg-gradient-to-br ${map[color]} opacity-40 blur-2xl`}
+      />
+    </div>
+  );
+}
+
 export function HomeBentoGrid() {
   return (
     <section className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -8,9 +29,7 @@ export function HomeBentoGrid() {
         href="/matches"
         className="glass-effect group relative flex min-h-[160px] flex-col justify-between overflow-hidden rounded-xl border border-white/10 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[#CCFF00]/50"
       >
-        <div className="pointer-events-none absolute -bottom-4 -right-4 opacity-10 transition-opacity group-hover:opacity-20">
-          <MaterialIcon name="sports_soccer" className="text-[100px] text-[#CCFF00]" filled />
-        </div>
+        <CornerGlow color="lime" />
         <div className="relative z-10 flex justify-between">
           <MaterialIcon name="sports_soccer" className="text-3xl text-[#CCFF00]" />
           <MaterialIcon
@@ -27,9 +46,7 @@ export function HomeBentoGrid() {
         href="/simulator"
         className="glass-effect group relative flex min-h-[160px] flex-col justify-between overflow-hidden rounded-xl border border-white/10 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[#00e0ff]/50"
       >
-        <div className="pointer-events-none absolute -bottom-4 -right-4 opacity-10 transition-opacity group-hover:opacity-20">
-          <MaterialIcon name="account_tree" className="text-[100px] text-[#00e0ff]" filled />
-        </div>
+        <CornerGlow color="cyan" />
         <div className="relative z-10 flex justify-between">
           <MaterialIcon name="account_tree" className="text-3xl text-[#00e0ff]" />
           <MaterialIcon
@@ -46,9 +63,7 @@ export function HomeBentoGrid() {
         href="/predictions"
         className="glass-effect group relative flex min-h-[160px] flex-col justify-between overflow-hidden rounded-xl border border-white/10 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-purple-400/50"
       >
-        <div className="pointer-events-none absolute -bottom-4 -right-4 opacity-10 transition-opacity group-hover:opacity-20">
-          <MaterialIcon name="query_stats" className="text-[100px] text-purple-300" filled />
-        </div>
+        <CornerGlow color="purple" />
         <div className="relative z-10 flex justify-between">
           <MaterialIcon name="query_stats" className="text-3xl text-purple-300" />
           <MaterialIcon
@@ -65,9 +80,7 @@ export function HomeBentoGrid() {
         href="/games"
         className="glass-effect group relative flex min-h-[160px] flex-col justify-between overflow-hidden rounded-xl border border-white/10 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[#CCFF00]/50"
       >
-        <div className="pointer-events-none absolute -bottom-4 -right-4 opacity-10 transition-opacity group-hover:opacity-20">
-          <MaterialIcon name="sports_esports" className="text-[100px] text-[#CCFF00]" filled />
-        </div>
+        <CornerGlow color="lime" />
         <div className="relative z-10 flex justify-between">
           <MaterialIcon name="sports_esports" className="text-3xl text-[#CCFF00]" />
           <MaterialIcon

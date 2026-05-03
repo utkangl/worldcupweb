@@ -19,7 +19,8 @@ export default function GamesPage() {
           Football Mini-Games
         </h1>
         <p className="mt-3 max-w-2xl text-lg text-on-surface-variant">
-          Choose a bracket, pick winners head-to-head, and crown your champion.
+          Choose a bracket, pick winners head-to-head, and crown your champion. Each
+          tap updates a local popularity rank for the full pool (e.g. all 64 legends).
         </p>
       </header>
       <MiniGamesArena games={games} />

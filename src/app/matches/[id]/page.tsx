@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { MatchTimeline } from "@/features/matches/components/MatchTimeline";
 import { MatchStats } from "@/features/matches/components/MatchStats";
+import { MatchKickoffCountdown } from "@/features/matches/components/MatchKickoffCountdown";
 import {
   formatKickoffLocal,
   statusLabel,
@@ -115,6 +116,9 @@ export default async function MatchDetailPage({ params }: Props) {
           </div>
         </div>
       </section>
+      {m.status === "upcoming" && (
+        <MatchKickoffCountdown kickoff={m.kickoff} status={m.status} />
+      )}
       <section className="glass-effect rounded-2xl p-6 md:p-8">
         <h2 className="font-lexend flex items-center gap-2 text-xl font-semibold text-white">
           Timeline

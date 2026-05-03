@@ -1,10 +1,14 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import type { MiniGameDefinition, MiniGameEntry } from "@/lib/types";
-import { MaterialIcon } from "@/components/ui/MaterialIcon";
+import {
+  bumpMiniGameWinner,
+  miniGameLeaderboard,
+} from "@/lib/community-stats";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
+import { BracketFullscreenLayer } from "@/features/games/components/BracketFullscreenLayer";
 
 const BRACKET_SIZES = [16, 32, 64] as const;
 
@@ -30,13 +34,6 @@ function samplePool(pool: MiniGameEntry[], size: number): MiniGameEntry[] {
   return shuffle(pool).slice(0, size);
 }
 
-function roundLabel(size: number): string {
-  if (size === 2) return "Final";
-  if (size === 4) return "Semi-finals";
-  if (size === 8) return "Quarter-finals";
-  return `Round of ${size}`;
-}
-
 function kindLabel(kind: MiniGameDefinition["kind"]): string {
   if (kind === "player") return "Players";
   if (kind === "team") return "Teams";
@@ -47,6 +44,22 @@ export function MiniGamesArena({ games }: { games: MiniGameDefinition[] }) {
   const [gameId, setGameId] = useState(games[0]?.id ?? "");
   const [size, setSize] = useState<number>(16);
   const [session, setSession] = useState<Session | null>(null);
+  const [leaderboardTick, setLeaderboardTick] = useState(0);
+  const [portalReady, setPortalReady] = useState(false);
+
+  useEffect(() => {
+    setPortalReady(true);
+  }, []);
+
+  useEffect(() => {
+    const refresh = () => setLeaderboardTick((t) => t + 1);
+    window.addEventListener("wc-pulse-community-stats", refresh);
+    window.addEventListener("storage", refresh);
+    return () => {
+      window.removeEventListener("wc-pulse-community-stats", refresh);
+      window.removeEventListener("storage", refresh);
+    };
+  }, []);
 
   const selectedGame = useMemo(
     () => games.find((g) => g.id === gameId) ?? games[0],
@@ -69,6 +82,12 @@ export function MiniGamesArena({ games }: { games: MiniGameDefinition[] }) {
   const completed = session?.completedMatches ?? 0;
   const progress = totalMatches > 0 ? Math.round((completed / totalMatches) * 100) : 0;
 
+  const poolLeaderboard = useMemo(() => {
+    if (!selectedGame) return [];
+    void leaderboardTick;
+    return miniGameLeaderboard(selectedGame.id, selectedGame.pool);
+  }, [selectedGame, leaderboardTick]);
+
   const startGame = () => {
     if (!selectedGame) return;
     const entrants = samplePool(selectedGame.pool, activeSize);
@@ -83,6 +102,8 @@ export function MiniGamesArena({ games }: { games: MiniGameDefinition[] }) {
   };
 
   const pickWinner = (winner: MiniGameEntry) => {
+    if (selectedGame) bumpMiniGameWinner(selectedGame.id, winner.id);
+    setLeaderboardTick((t) => t + 1);
     setSession((prev) => {
       if (!prev) return prev;
       const nextRound = [...prev.nextRound, winner];
@@ -119,8 +140,34 @@ export function MiniGamesArena({ games }: { games: MiniGameDefinition[] }) {
     });
   };
 
+  const closeFullscreen = useCallback(() => {
+    setSession((cur) => {
+      if (!cur) return cur;
+      if (!cur.champion) {
+        if (!window.confirm("Exit bracket? Your progress will be lost.")) {
+          return cur;
+        }
+      }
+      return null;
+    });
+  }, []);
+
   return (
     <div className="space-y-8">
+      {portalReady && session ? (
+        <BracketFullscreenLayer
+          session={session}
+          selectedGame={selectedGame}
+          progress={progress}
+          completed={completed}
+          totalMatches={totalMatches}
+          left={left}
+          right={right}
+          onPick={pickWinner}
+          onClose={closeFullscreen}
+          onPlayAgain={startGame}
+        />
+      ) : null}
       <div className="grid gap-4 lg:grid-cols-[1.2fr_0.8fr]">
         <Card className="space-y-4">
           <p className="font-label-caps text-[#00e0ff]">Mini-game selector</p>
@@ -184,81 +231,67 @@ export function MiniGamesArena({ games }: { games: MiniGameDefinition[] }) {
         </Card>
       </div>
 
-      {session ? (
-        session.champion ? (
-          <Card className="text-center">
-            <p className="font-label-caps text-[#CCFF00]">Champion decided</p>
-            <h3 className="font-lexend mt-2 text-4xl font-black text-white">{session.champion.label}</h3>
-            {session.champion.meta ? (
-              <p className="mt-1 text-on-surface-variant">{session.champion.meta}</p>
-            ) : null}
-            <p className="mt-4 text-sm text-on-surface-variant">
-              {selectedGame?.title} · {session.size} bracket
-            </p>
-            <div className="mt-6 flex justify-center gap-2">
-              <Button type="button" onClick={startGame}>
-                Play again
-              </Button>
-              <Button type="button" variant="ghost" onClick={() => setSession(null)}>
-                Change mini-game
-              </Button>
+      {selectedGame ? (
+        <Card className="space-y-3">
+          <div className="flex flex-wrap items-start justify-between gap-2">
+            <div>
+              <p className="font-label-caps text-[#CCFF00]">Pick popularity</p>
+              <h3 className="font-lexend mt-1 text-lg font-semibold text-white">
+                {selectedGame.title} — ranked
+              </h3>
+              <p className="mt-1 text-xs text-on-surface-variant">
+                Counts from head-to-head taps on this device (local only).
+              </p>
             </div>
-          </Card>
-        ) : (
-          <div className="space-y-5">
-            <Card className="space-y-3">
-              <div className="flex items-center justify-between gap-3">
-                <p className="font-label-caps text-[#00e0ff]">{roundLabel(session.currentRound.length)}</p>
-                <p className="font-label-caps text-on-surface-variant">
-                  Match {session.pairIndex + 1} / {session.currentRound.length / 2}
-                </p>
-              </div>
-              <div className="h-2 overflow-hidden rounded-full bg-surface-high">
-                <div
-                  className="h-full rounded-full bg-gradient-to-r from-[#00e0ff] to-[#CCFF00]"
-                  style={{ width: `${progress}%` }}
-                />
-              </div>
-              <p className="text-xs text-on-surface-variant">{completed} / {totalMatches} picks completed</p>
-            </Card>
-
-            {left && right ? (
-              <div className="relative grid gap-4 md:grid-cols-2">
-                <button
-                  type="button"
-                  onClick={() => pickWinner(left)}
-                  className="group relative min-h-[220px] rounded-2xl border border-white/10 bg-[#201f20] p-6 text-left transition hover:border-[#CCFF00]/40 hover:shadow-[0_0_30px_rgba(204,255,0,0.12)]"
-                >
-                  <p className="font-label-caps text-[#CCFF00]">A</p>
-                  <h4 className="font-lexend mt-4 text-3xl font-bold text-white">{left.label}</h4>
-                  {left.meta ? <p className="mt-2 text-on-surface-variant">{left.meta}</p> : null}
-                </button>
-                <button
-                  type="button"
-                  onClick={() => pickWinner(right)}
-                  className="group relative min-h-[220px] rounded-2xl border border-white/10 bg-[#201f20] p-6 text-left transition hover:border-[#00e0ff]/40 hover:shadow-[0_0_30px_rgba(0,224,255,0.12)]"
-                >
-                  <p className="font-label-caps text-[#00e0ff]">B</p>
-                  <h4 className="font-lexend mt-4 text-3xl font-bold text-white">{right.label}</h4>
-                  {right.meta ? <p className="mt-2 text-on-surface-variant">{right.meta}</p> : null}
-                </button>
-                <div className="pointer-events-none absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 md:block">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-full border border-white/10 bg-black/70">
-                    <MaterialIcon name="swords" className="text-xl text-[#00e0ff]" />
-                  </div>
-                </div>
-              </div>
-            ) : null}
+            <span className="rounded-md border border-white/10 bg-black/30 px-2 py-1 font-mono text-[10px] text-zinc-400">
+              {selectedGame.pool.length} entries
+            </span>
           </div>
-        )
-      ) : (
+          <div className="max-h-[min(70vh,28rem)] overflow-y-auto rounded-xl border border-white/10">
+            <table className="w-full text-left text-sm">
+              <thead className="sticky top-0 z-[1] bg-[#1a1a1b] text-xs uppercase tracking-wide text-zinc-500">
+                <tr>
+                  <th className="px-3 py-2 font-medium">#</th>
+                  <th className="px-3 py-2 font-medium">Choice</th>
+                  <th className="px-3 py-2 text-right font-medium">Picks</th>
+                </tr>
+              </thead>
+              <tbody>
+                {poolLeaderboard.map((row, i) => {
+                  const entry = selectedGame.pool.find((e) => e.id === row.id);
+                  return (
+                    <tr
+                      key={row.id}
+                      className="border-t border-white/5 odd:bg-black/15 hover:bg-white/[0.04]"
+                    >
+                      <td className="px-3 py-2 font-mono text-zinc-500">{i + 1}</td>
+                      <td className="px-3 py-2 text-white">
+                        {entry?.label ?? row.id}
+                        {entry?.meta ? (
+                          <span className="ml-2 text-xs text-zinc-500">{entry.meta}</span>
+                        ) : null}
+                      </td>
+                      <td className="px-3 py-2 text-right font-mono tabular-nums text-[#00e0ff]">
+                        {row.count}
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        </Card>
+      ) : null}
+
+      {!session ? (
         <Card>
           <p className="text-on-surface-variant">
-            Pick a mini-game, choose bracket size (16/32/64 when available), and start voting
-            head-to-head like UwUFUFU world cup mode.
+            Pick a mini-game, choose bracket size (16/32/64 when available), then{" "}
+            <span className="text-white">Start bracket</span> — the matchup opens in a
+            full-screen arena so the flow is obvious.
           </p>
         </Card>
-      )}
+      ) : null}
     </div>
   );
 }

@@ -12,6 +12,7 @@ import bracketTemplate from "@/data/bracket-template.json";
 import thisOrThatData from "@/data/this-or-that.json";
 import miniGamesData from "@/data/mini-games.json";
 import playersData from "@/data/players.json";
+import playersPoolData from "@/data/players-pool.json";
 
 const matches = matchesData as Match[];
 const teams = teamsData as Team[];
@@ -51,5 +52,16 @@ export function getMiniGames(): MiniGameDefinition[] {
 }
 
 export function getPlayers(): PlayerOption[] {
-  return playersData as PlayerOption[];
+  const core = playersData as PlayerOption[];
+  const pool = playersPoolData as PlayerOption[];
+  const seen = new Set(core.map((p) => p.id));
+  const merged = [...core];
+  for (const p of pool) {
+    if (!seen.has(p.id)) {
+      merged.push(p);
+      seen.add(p.id);
+    }
+  }
+  merged.sort((a, b) => a.name.localeCompare(b.name));
+  return merged;
 }

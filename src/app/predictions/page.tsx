@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { PredictionForm } from "@/features/predictions/components/PredictionForm";
+import { PredictionTrending } from "@/features/predictions/components/PredictionTrending";
 import { PredictionsShareSection } from "@/features/share/components/PredictionsShareSection";
 import { getPlayers, getTeams } from "@/lib/data/loaders";
 import { Card } from "@/components/ui/Card";
@@ -52,6 +53,7 @@ export default function PredictionsPage() {
           <Card className="border-white/10 bg-[#201f20]/40 p-5 md:p-7">
             <PredictionForm players={players} teams={teams} />
           </Card>
+          <PredictionTrending players={players} teams={teams} />
         </section>
 
         <aside className="space-y-4 lg:sticky lg:top-24">
