@@ -3,6 +3,7 @@ import { Geist_Mono, Inter, Lexend, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { AppShell } from "@/components/layout/AppShell";
 import { SITE_DESCRIPTION, SITE_NAME } from "@/lib/constants";
+import { getSiteUrl } from "@/lib/site-url";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -26,6 +27,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(getSiteUrl()),
   title: {
     default: SITE_NAME,
     template: `%s · ${SITE_NAME}`,
@@ -35,6 +37,7 @@ export const metadata: Metadata = {
     title: SITE_NAME,
     description: SITE_DESCRIPTION,
     type: "website",
+    url: "/",
   },
 };
 

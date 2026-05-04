@@ -1,10 +1,8 @@
 import Link from "next/link";
 
 const links = [
-  { href: "#", label: "Privacy Policy" },
-  { href: "#", label: "Terms of Service" },
-  { href: "#", label: "Tournament Rules" },
-  { href: "#", label: "Support" },
+  { href: "/privacy", label: "Privacy" },
+  { href: "/terms", label: "Terms" },
 ] as const;
 
 export function SiteFooter() {
@@ -25,8 +23,10 @@ export function SiteFooter() {
             </Link>
           ))}
         </nav>
-        <p className="text-center font-lexend text-xs tracking-wide text-white/30 md:text-right">
-          © 2026 WORLD CUP DIGITAL SIMULATOR. ALL RIGHTS RESERVED.
+        <p className="max-w-sm text-center font-lexend text-xs leading-snug tracking-wide text-white/35 md:text-right">
+          Unofficial fan companion · not affiliated with FIFA. Fixtures and
+          branding on the site are for demonstration — not a claim of ownership
+          over tournament rights or data.
         </p>
       </div>
     </footer>

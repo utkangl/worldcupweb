@@ -1,6 +1,6 @@
 # World Cup Pulse · FWC 2026
 
-https://worldcupweb.vercel.app/
+Live demo: **https://worldcupweb.vercel.app/**
 
 Dark, neon-accented hub for **fixtures**, **knockout simulation**, **saved predictions**, **bracket mini-games**, and **share cards**. Data is static JSON; state persists in the browser where noted.
 
@@ -43,6 +43,27 @@ Open [http://localhost:3000](http://localhost:3000) — **Home** is the landing 
 | `/simulator` | Group order, third-place flow, bracket steps + fullscreen-friendly KO navigation |
 | `/predictions` | Podium, dark horse, awards form + local persistence + share card panel |
 | `/games` | Mini-game arena: mode cards, bracket size, **fullscreen head-to-head** bracket, local pick leaderboard |
+| `/privacy` | MVP privacy overview (localStorage, no accounts) |
+| `/terms` | MVP terms of use (unofficial fan project, as-is) |
+
+## MVP (launch-ready baseline)
+
+This repo is aligned with a **shippable MVP**: core UX, static data, browser persistence, basic legal pages, SEO entry points, and error surfaces.
+
+- [x] **Legal** — [`/privacy`](./src/app/privacy/page.tsx), [`/terms`](./src/app/terms/page.tsx); footer links.
+- [x] **SEO** — [`src/app/sitemap.ts`](./src/app/sitemap.ts), [`src/app/robots.ts`](./src/app/robots.ts); `metadataBase` from [`getSiteUrl()`](./src/lib/site-url.ts).
+- [x] **Errors** — [`not-found`](./src/app/not-found.tsx), [`error`](./src/app/error.tsx) boundary.
+- [x] **Config** — [`.env.example`](./.env.example) documents `NEXT_PUBLIC_SITE_URL` for production.
+
+**Before you go live:** copy `.env.example` → `.env.production` (or set vars in the host UI) with your real `NEXT_PUBLIC_SITE_URL`, run `npm run build`, deploy (e.g. Vercel), and re-read Privacy/Terms for your jurisdiction.
+
+## Roadmap (after MVP)
+
+| Phase | Focus |
+| ----- | ----- |
+| **Next** | Live or scheduled fixture API, caching, “live” state from real data; optional auth to sync picks server-side. |
+| **Then** | Push / favourites, richer analytics, i18n, moderation if UGC appears. |
+| **Later (post–post-MVP)** | **Games:** hero photography per mode, licensed or original art, and additional “real” game types beyond bracket JSON — intentionally deferred past the phases above. |
 
 ## Features (high level)
 
@@ -68,7 +89,7 @@ Tournament content is **static JSON** under `src/data/`. Swap or extend those fi
 
 ## Privacy / “community” stats
 
-Pick counters used for Games / Predictions trending UIs are stored in **`localStorage`** on the device only — not a global backend.
+Pick counters used for Games / Predictions trending UIs are stored in **`localStorage`** on the device only — not a global backend. See **`/privacy`** for the short MVP-facing explanation.
 
 ## Docs for agents
 
