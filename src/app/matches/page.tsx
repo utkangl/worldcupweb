@@ -24,7 +24,7 @@ export default function MatchesPage() {
           </p>
         </div>
       </header>
-      <MatchesCountdowns matches={matches} />
+      <MatchesCountdowns matches={matches} teams={teams} />
       <MatchListWithFilters matches={matches} teams={teams} />
     </div>
   );

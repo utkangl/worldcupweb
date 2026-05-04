@@ -92,3 +92,30 @@ export function scoreLine(
   const as = m.awayScore ?? 0;
   return `${home?.shortName ?? "?"} ${hs} – ${as} ${away?.shortName ?? "?"}`;
 }
+
+const teamById = (teams: Team[]) => new Map(teams.map((t) => [t.id, t]));
+
+/** Full country names, e.g. "Mexico vs South Africa" */
+export function matchFixtureHeadline(m: Match, teams: Team[]): string {
+  const map = teamById(teams);
+  const home = map.get(m.homeTeamId);
+  const away = map.get(m.awayTeamId);
+  return `${home?.name ?? m.homeTeamId} vs ${away?.name ?? m.awayTeamId}`;
+}
+
+/** Short names for compact UI, e.g. "MEX vs RSA" */
+export function matchFixtureHeadlineShort(m: Match, teams: Team[]): string {
+  const map = teamById(teams);
+  const home = map.get(m.homeTeamId);
+  const away = map.get(m.awayTeamId);
+  return `${home?.shortName ?? m.homeTeamId} vs ${away?.shortName ?? m.awayTeamId}`;
+}
+
+/** Group / round context, e.g. "Group A" or "Round of 16" */
+export function matchStageLine(m: Match): string {
+  if (m.stage === "knockout") {
+    return m.round ?? "Knockout";
+  }
+  if (m.round) return m.round;
+  return m.group ? `Group ${m.group}` : "Group stage";
+}

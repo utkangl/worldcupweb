@@ -22,11 +22,6 @@ type DayBucket = {
   matches: Match[];
 };
 
-function matchLabel(matchId: string): string {
-  const n = matchId.match(/(\d+)/)?.[1];
-  return n ? `Match ${Number(n)}` : matchId.toUpperCase();
-}
-
 export function MatchListWithFilters({
   matches,
   teams,
@@ -178,7 +173,7 @@ export function MatchListWithFilters({
                   ) : null}
                   <div className="relative z-10 mb-3 flex items-start justify-between gap-2">
                     <span className="font-label-caps text-on-surface-variant">
-                      {matchLabel(m.id)}
+                      {home.shortName} vs {away.shortName}
                     </span>
                     <div className="flex flex-col items-end gap-1">
                       {live ? (

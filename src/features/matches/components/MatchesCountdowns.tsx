@@ -5,16 +5,20 @@ import { CountdownTimer } from "@/features/countdown/components/CountdownTimer";
 import {
   formatKickoffClockTRT,
   formatFixtureDayTitleTRT,
+  matchFixtureHeadline,
+  matchFixtureHeadlineShort,
+  matchStageLine,
 } from "@/features/matches/lib/format";
-import type { Match } from "@/lib/types";
+import type { Match, Team } from "@/lib/types";
 import { getNextUpcomingMatch } from "@/lib/match-utils";
 
-function matchLabel(matchId: string): string {
-  const n = matchId.match(/(\d+)/)?.[1];
-  return n ? `Match ${Number(n)}` : matchId.toUpperCase();
-}
-
-export function MatchesCountdowns({ matches }: { matches: Match[] }) {
+export function MatchesCountdowns({
+  matches,
+  teams,
+}: {
+  matches: Match[];
+  teams: Team[];
+}) {
   const next = useMemo(() => getNextUpcomingMatch(matches), [matches]);
   const selectable = useMemo(
     () => matches.filter((m) => m.status === "upcoming" || m.status === "live"),
@@ -33,13 +37,19 @@ export function MatchesCountdowns({ matches }: { matches: Match[] }) {
         <div className="relative z-10 grid gap-5 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
           <div>
             <p className="font-label-caps text-[#CCFF00]">Focused countdown</p>
-            <h2 className="font-lexend mt-2 text-3xl font-black text-white md:text-4xl">
-              {selected ? matchLabel(selected.id) : "Next match"}
+            <h2 className="font-lexend mt-2 text-2xl font-black leading-tight text-white sm:text-3xl md:text-4xl">
+              {selected ? matchFixtureHeadline(selected, teams) : "Next match"}
             </h2>
             {selected ? (
-              <p className="mt-2 text-on-surface-variant">
-                {formatFixtureDayTitleTRT(selected.kickoff)} - {formatKickoffClockTRT(selected.kickoff)} TRT
-              </p>
+              <>
+                <p className="mt-2 text-sm font-medium text-white/80">
+                  {matchStageLine(selected)}
+                </p>
+                <p className="mt-1 text-on-surface-variant">
+                  {formatFixtureDayTitleTRT(selected.kickoff)} ·{" "}
+                  {formatKickoffClockTRT(selected.kickoff)} TRT
+                </p>
+              </>
             ) : (
               <p className="mt-2 text-on-surface-variant">No upcoming matches right now.</p>
             )}
@@ -69,7 +79,8 @@ export function MatchesCountdowns({ matches }: { matches: Match[] }) {
           ) : (
             selectable.map((m) => (
               <option key={m.id} value={m.id}>
-                {matchLabel(m.id)} - {formatFixtureDayTitleTRT(m.kickoff)} - {formatKickoffClockTRT(m.kickoff)}
+                {matchFixtureHeadlineShort(m, teams)} · {formatFixtureDayTitleTRT(m.kickoff)} ·{" "}
+                {formatKickoffClockTRT(m.kickoff)} TRT
               </option>
             ))
           )}
