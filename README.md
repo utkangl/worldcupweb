@@ -1,5 +1,7 @@
 # World Cup Pulse · FWC 2026
 
+https://worldcupweb.vercel.app/
+
 Dark, neon-accented hub for **fixtures**, **knockout simulation**, **saved predictions**, **bracket mini-games**, and **share cards**. Data is static JSON; state persists in the browser where noted.
 
 ## Stack
