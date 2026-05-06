@@ -1,5 +1,4 @@
-import { MatchesCountdowns } from "@/features/matches/components/MatchesCountdowns";
-import { MatchListWithFilters } from "@/features/matches/components/MatchListWithFilters";
+import { MatchesHub } from "@/features/matches/components/MatchesHub";
 import { getMatches, getTeams } from "@/lib/data/loaders";
 import type { Metadata } from "next";
 
@@ -24,8 +23,7 @@ export default function MatchesPage() {
           </p>
         </div>
       </header>
-      <MatchesCountdowns matches={matches} teams={teams} />
-      <MatchListWithFilters matches={matches} teams={teams} />
+      <MatchesHub matches={matches} teams={teams} />
     </div>
   );
 }

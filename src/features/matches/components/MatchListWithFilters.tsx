@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
   formatFixtureDayPillTRT,
   formatFixtureDayTitleTRT,
@@ -10,6 +10,7 @@ import {
   kickoffCalendarKeyTRT,
   statusLabel,
 } from "@/features/matches/lib/format";
+import { MaterialIcon } from "@/components/ui/MaterialIcon";
 import { flagUrl } from "@/lib/flag-url";
 import type { Match, Team } from "@/lib/types";
 
@@ -25,12 +26,19 @@ type DayBucket = {
 export function MatchListWithFilters({
   matches,
   teams,
+  featuredMatchId,
+  onSelectFeatured,
 }: {
   matches: Match[];
   teams: Team[];
+  featuredMatchId?: string;
+  onSelectFeatured?: (matchId: string) => void;
 }) {
   const [stage, setStage] = useState<Stage>("all");
   const [selectedDay, setSelectedDay] = useState<string>("");
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(false);
+  const daysStripRef = useRef<HTMLDivElement | null>(null);
 
   const teamMap = useMemo(() => new Map(teams.map((t) => [t.id, t])), [teams]);
 
@@ -74,7 +82,37 @@ export function MatchListWithFilters({
     }
   }, [buckets, selectedDay]);
 
+  useEffect(() => {
+    const el = daysStripRef.current;
+    if (!el) return;
+
+    const update = () => {
+      const maxScroll = el.scrollWidth - el.clientWidth;
+      setCanScrollLeft(el.scrollLeft > 8);
+      setCanScrollRight(el.scrollLeft < maxScroll - 8);
+    };
+
+    update();
+    el.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+
+    return () => {
+      el.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
+  }, [buckets]);
+
   const active = buckets.find((b) => b.dayKey === selectedDay) ?? buckets[0];
+
+  const scrollDays = (dir: "left" | "right") => {
+    const el = daysStripRef.current;
+    if (!el) return;
+    const amount = Math.max(220, Math.floor(el.clientWidth * 0.7));
+    el.scrollBy({
+      left: dir === "left" ? -amount : amount,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <section className="space-y-6">
@@ -106,8 +144,32 @@ export function MatchListWithFilters({
         </p>
       </div>
 
-      <div className="glass-effect overflow-x-auto rounded-xl border border-white/10 p-2">
-        <div className="flex min-w-max gap-2 px-1 pb-1">
+      <div className="glass-effect rounded-xl border border-white/10 p-2">
+        <div className="mb-1 hidden items-center justify-end gap-2 px-1 md:flex">
+          <button
+            type="button"
+            onClick={() => scrollDays("left")}
+            disabled={!canScrollLeft}
+            className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/10 bg-[#0e0e0f]/90 text-white transition hover:border-[#00e0ff]/50 hover:text-[#00e0ff] disabled:cursor-default disabled:opacity-30"
+            aria-label="Scroll days left"
+          >
+            <MaterialIcon name="chevron_left" className="!text-xl" />
+          </button>
+          <button
+            type="button"
+            onClick={() => scrollDays("right")}
+            disabled={!canScrollRight}
+            className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/10 bg-[#0e0e0f]/90 text-white transition hover:border-[#00e0ff]/50 hover:text-[#00e0ff] disabled:cursor-default disabled:opacity-30"
+            aria-label="Scroll days right"
+          >
+            <MaterialIcon name="chevron_right" className="!text-xl" />
+          </button>
+        </div>
+        <div
+          ref={daysStripRef}
+          className="hide-scrollbar overflow-x-auto scroll-smooth px-1 pb-1"
+        >
+          <div className="flex min-w-max gap-2">
           {buckets.map((b) => {
             const isActive = b.dayKey === active?.dayKey;
             return (
@@ -130,6 +192,7 @@ export function MatchListWithFilters({
               </button>
             );
           })}
+          </div>
         </div>
       </div>
 
@@ -158,11 +221,13 @@ export function MatchListWithFilters({
               const live = m.status === "live";
               const finished = m.status === "finished";
 
+              const canFeature = m.status === "upcoming" || m.status === "live";
+              const isFeatured = featuredMatchId === m.id;
+
               return (
-                <Link
+                <div
                   key={m.id}
-                  href={`/matches/${m.id}`}
-                  className={`glass-effect group relative block overflow-hidden rounded-xl border p-4 transition-all duration-300 md:p-5 ${
+                  className={`glass-effect group relative overflow-hidden rounded-xl border p-4 transition-all duration-300 md:p-5 ${
                     live
                       ? "border-[#00e0ff]/50 shadow-[0_0_20px_rgba(0,224,255,0.1)]"
                       : "border-white/10 hover:border-[#CCFF00]/30"
@@ -171,6 +236,22 @@ export function MatchListWithFilters({
                   {live ? (
                     <div className="pointer-events-none absolute left-1/2 top-1/2 h-3/4 w-3/4 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#00e0ff]/10 blur-[60px]" />
                   ) : null}
+                  <div className="relative z-10 mb-3 flex justify-end">
+                    <button
+                      type="button"
+                      disabled={!canFeature}
+                      onClick={() => canFeature && onSelectFeatured?.(m.id)}
+                      className={`inline-flex items-center gap-1 rounded-full border px-2.5 py-1 font-label-caps text-[10px] transition ${
+                        isFeatured
+                          ? "border-[#CCFF00]/40 bg-[#CCFF00]/10 text-[#CCFF00]"
+                          : "border-white/10 bg-black/20 text-on-surface-variant hover:border-[#00e0ff]/40 hover:text-[#00e0ff]"
+                      } ${!canFeature ? "cursor-default opacity-40" : ""}`}
+                    >
+                      <MaterialIcon name="schedule" className="!text-sm" />
+                      {isFeatured ? "Featured" : "Set featured"}
+                    </button>
+                  </div>
+                  <Link href={`/matches/${m.id}`} className="block">
                   <div className="relative z-10 mb-3 flex items-start justify-between gap-2">
                     <span className="font-label-caps text-on-surface-variant">
                       {home.shortName} vs {away.shortName}
@@ -238,7 +319,8 @@ export function MatchListWithFilters({
                       </div>
                     )}
                   </div>
-                </Link>
+                  </Link>
+                </div>
               );
             })}
           </div>

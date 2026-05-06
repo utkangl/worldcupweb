@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { CountdownTimer } from "@/features/countdown/components/CountdownTimer";
 import {
   formatKickoffClockTRT,
@@ -15,18 +15,36 @@ import { getNextUpcomingMatch } from "@/lib/match-utils";
 export function MatchesCountdowns({
   matches,
   teams,
+  selectedId,
+  onSelectedIdChange,
 }: {
   matches: Match[];
   teams: Team[];
+  selectedId?: string;
+  onSelectedIdChange?: (id: string) => void;
 }) {
   const next = useMemo(() => getNextUpcomingMatch(matches), [matches]);
   const selectable = useMemo(
     () => matches.filter((m) => m.status === "upcoming" || m.status === "live"),
     [matches]
   );
-  const [selectedId, setSelectedId] = useState(() => next?.id ?? selectable[0]?.id ?? "");
+  const [internalSelectedId, setInternalSelectedId] = useState(
+    () => next?.id ?? selectable[0]?.id ?? ""
+  );
+  const focusedId = selectedId ?? internalSelectedId;
 
-  const selected = matches.find((m) => m.id === selectedId) ?? next;
+  const selected = matches.find((m) => m.id === focusedId) ?? next;
+
+  useEffect(() => {
+    if (!selectedId && !internalSelectedId) {
+      setInternalSelectedId(next?.id ?? selectable[0]?.id ?? "");
+    }
+  }, [selectedId, internalSelectedId, next, selectable]);
+
+  const setFocusedId = (id: string) => {
+    onSelectedIdChange?.(id);
+    if (selectedId === undefined) setInternalSelectedId(id);
+  };
 
   return (
     <section className="space-y-4">
@@ -70,8 +88,8 @@ export function MatchesCountdowns({
         <label className="font-label-caps text-on-surface-variant">Change focus match</label>
         <select
           className="mt-2 w-full rounded-lg border border-white/10 bg-[#0e0e0f] px-3 py-2 text-sm text-white"
-          value={selectedId}
-          onChange={(e) => setSelectedId(e.target.value)}
+          value={focusedId}
+          onChange={(e) => setFocusedId(e.target.value)}
           disabled={selectable.length === 0}
         >
           {selectable.length === 0 ? (

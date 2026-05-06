@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { Match, Team } from "@/lib/types";
 import { flagUrl } from "@/lib/flag-url";
 import { formatKickoffLocal, statusLabel } from "@/features/matches/lib/format";
+import { CountdownTimer } from "@/features/countdown/components/CountdownTimer";
 
 export function FeaturedMatchStrip({
   match,
@@ -71,6 +72,13 @@ export function FeaturedMatchStrip({
                 {match.status === "upcoming" ? "—" : match.awayScore ?? 0}
               </span>
             </div>
+            {match.status === "upcoming" ? (
+              <CountdownTimer
+                targetIso={match.kickoff}
+                label="Kick-off in"
+                className="mt-4 w-full max-w-[19rem] border border-white/10 bg-black/20 p-4"
+              />
+            ) : null}
             <p className="mt-4 text-base text-on-surface-variant">
               {match.round ?? match.stage} · {formatKickoffLocal(match.kickoff)}
             </p>
